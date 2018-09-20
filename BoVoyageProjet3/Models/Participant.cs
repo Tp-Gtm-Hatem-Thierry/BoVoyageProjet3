@@ -10,6 +10,7 @@ namespace BoVoyageProjet3.Models
     //Model de table Paticipant
     public class Participant : Personne
     {
+        //public new int Id { get; set; }
         public int NumeroUnique { get; set; }
         public double Reduction
         {
