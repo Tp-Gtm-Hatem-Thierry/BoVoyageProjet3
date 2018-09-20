@@ -108,6 +108,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgenceVoyage.cs" />
     <Compile Include="Models\Assurance.cs" />
+    <Compile Include="Models\AssuranceDossierReservation.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Destination.cs" />
     <Compile Include="Models\DossierReservation.cs" />
