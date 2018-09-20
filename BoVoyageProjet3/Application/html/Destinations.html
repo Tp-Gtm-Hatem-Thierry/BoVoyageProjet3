@@ -34,13 +34,29 @@
             //data: data,
             //dataType:'json',
 
-            success: function (a) { // on affiche le retour.
-                console.log(a);
+            success: function (data) { // on affiche le retour.
+                for (var element of data) {
+
+                    $('span').append(element.Id + " " + element.Pays + " " + element.Description + '<br>');
+                }
             },
+
             error: function () {
                 alert('Ca Marche pas !');
             }
         });
+
+
+
+        //$.get("/api/destinations", function (data) {
+
+        //    for (const element of data) {
+        //        $('span').append(element.continent + '<br>');
+        //    }
+
+        //    console.log(data);
+
+        //});
     </script>
 </body>
 </html>
