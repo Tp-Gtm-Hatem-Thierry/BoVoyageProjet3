@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoVoyageProjet3.Models
 {
+    //Model de table Paticipant
     public class Participant : Personne
     {
         public int NumeroUnique { get; set; }
@@ -23,8 +24,9 @@ namespace BoVoyageProjet3.Models
 
         public int DossierReservationId { get; set; }
 
-        //[ForeignKey("DossierReservationId")]
+        [ForeignKey("DossierReservationId")]
         public virtual DossierReservation DossierReservation { get; set; }
+
         public string NomComplet
         {
             get
