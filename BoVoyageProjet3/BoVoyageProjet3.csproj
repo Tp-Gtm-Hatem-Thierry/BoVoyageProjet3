@@ -103,7 +103,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DossierReservationsController.cs" />
     <Compile Include="Controllers\ParticipantsController.cs" />
-    <Compile Include="Controllers\PersonnesController.cs" />
     <Compile Include="Controllers\VoyagesController.cs" />
     <Compile Include="Controllers\AgenceVoyagesController.cs" />
     <Compile Include="Controllers\AssurancesController.cs" />
