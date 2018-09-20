@@ -3,3 +3,9 @@ Lexique :
 //^^ commentaire à verifier			touches Alt + treïma, à droite de la touche P
 //¤	 commentaire à nettoyer			touches Alt-Gr + $
 
+Pense Bête :
+
+SwaggerConfig.cs
+ remplacer l.108  //c.IncludeXmlComments(GetXmlCommentsPath());
+ par ça                       c.IncludeXmlComments(
+                            $@"{System.AppDomain.CurrentDomain.BaseDirectory}\bin\BoVoyageProjet3.xml");

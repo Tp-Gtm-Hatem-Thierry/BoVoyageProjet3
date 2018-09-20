@@ -18,11 +18,11 @@ namespace BoVoyageProjet3.Models
         [Required]
         public string NumeroCarteBancaire { get; set; }
 
-        //^^[Required]
         //^^prix par perszonne a calculer
+        [Required]//^^
         public decimal PrixParPersonne { get; set; }
 
-        //^^[Required]
+        [Required]//^^
         public decimal PrixTotal { get; set; }
 
         //{
