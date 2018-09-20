@@ -105,14 +105,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201809201244545_Init.cs" />
-    <Compile Include="Migrations\201809201244545_Init.Designer.cs">
-      <DependentUpon>201809201244545_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201809201251479_Init.cs" />
+    <Compile Include="Migrations\201809201251479_Init.Designer.cs">
+      <DependentUpon>201809201251479_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgenceVoyage.cs" />
     <Compile Include="Models\Assurance.cs" />
-    <Compile Include="Models\AssuranceDossierReservation.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Destination.cs" />
     <Compile Include="Models\DossierReservation.cs" />
@@ -137,8 +136,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201809201244545_Init.resx">
-      <DependentUpon>201809201244545_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809201251479_Init.resx">
+      <DependentUpon>201809201251479_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
