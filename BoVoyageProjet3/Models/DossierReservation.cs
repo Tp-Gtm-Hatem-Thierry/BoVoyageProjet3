@@ -54,9 +54,6 @@ namespace BoVoyageProjet3.Models
         [ForeignKey("ClientId")]
         public Client Client { get; set; }
 
-        [ForeignKey("VoyageId")]
-        public Assurance Assurances { get; set; } //suppression collection
-
         [ForeignKey("ParticipantId")]
         public List<Participant> Participants { get; set; } //suppression collection
     }
