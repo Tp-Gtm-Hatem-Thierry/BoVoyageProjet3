@@ -18,10 +18,10 @@ namespace BoVoyageProjet3.Models
         public int DossierReservationId { get; set; }
 
         [ForeignKey("DossierReservationId")]
-        public List<DossierReservation> DossierReservations { get; set; } //suppression collection
+        public List<DossierReservation> DossierReservations { get; set; } //^^suppression collection
 
         public TypeAssurance TypeAssurance { get; set; }
-        //public virtual ICollection<DossierReservation> DossierReservations { get; set; }
+        //^^public virtual ICollection<DossierReservation> DossierReservations { get; set; }
     }
     public enum TypeAssurance { Annulation = 1 }
 
