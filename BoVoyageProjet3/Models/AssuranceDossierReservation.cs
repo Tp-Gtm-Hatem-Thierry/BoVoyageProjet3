@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoVoyageProjet3.Models
 {
-    public class AssuranceDossierReservation
+    public class AssuranceDossierReservation // a revoir 
     {
         [Key, Column(Order = 0)]
         public int AssuranceId { get; set; }
