@@ -9,7 +9,7 @@ namespace BoVoyageProjet3
 {
     public class Configuration : DbMigrationsConfiguration<BoVoyageDbContext>
     {
-        public Configuration() // le constructeur de la class Configuration
+        public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
