@@ -22,12 +22,48 @@
 <body>
     <h1>Destinations :</h1>
     <span></span>
+    <br />
+    <!--Creer un formulaire pour enregistrer une nouvelle destination-->
+    <!--Creer un formulaire pour enregistrer une nouvelle destination-->
+    <form novalidate>
+        <div class="form-group">
+            <label for="Continent">Continent</label>
+            <input type="text" class="form-control" id="Continent" required />
+            <!--<div class="invalid-feedback">
+                Champ requis
+            </div>-->
+        </div>
 
+        <div class="form-group">
+            <label for="Pays">Pays</label>
+            <input type="text" class="form-control" id="Pays" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <input type="text" class="form-control" id="Description" required />
+        </div>
+
+        <input type="submit" value="Enregistrer" onclick="return Enregistrer();">
+
+    </form>
+
+
+    <h1>Supprimer une destination</h1>
+    <label for="Id">Id de la destination a supprimer :</label>
+    <input id="choix" type="text" />
+
+    <!--<input type="submit" name="clic" value="Supprimer" />-->
+
+    <button name="clic"type="button" onclick="return Supprimer();">Supprimer</button>
+
+    <!--Creer un formulaire pour enregistrer une nouvelle destination-->
+    <!--Creer un formulaire pour enregistrer une nouvelle destination-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script>
-        fetch('/api/destinations')
-            .then(response => response.json())
-            .then(json => console.log(json))
+        //fetch('/api/destinations')
+        //    .then(response => response.json())
+        //    .then(json => console.log(json))
 
         $.ajax({
             type: 'GET',
@@ -48,16 +84,64 @@
         });
 
 
+        function Enregistrer() {
 
-        //$.get("/api/destinations", function (data) {
+            let destination = {
+                Continent: $('#Continent').val(),
+                Pays: $('#Pays').val(),
+                Description: $('#Description').val()
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/api/destinations',
+                data: destination,
+                success: function () {
+                    window.location.href = '/index.html';
+                },
+                error: function () {
+                    alert('Aïe aïe aïe carambla !!');
+                }
+            });
+            return false;
+        }
 
-        //    for (const element of data) {
-        //        $('span').append(element.continent + '<br>');
-        //    }
+        //--------------------------------------
+        function Supprimer() {
+            let choix = $('#choix').val();
 
-        //    console.log(data);
+            $('clic').click(function () {
 
-        //});
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/api/destinations/' + choix,
+                    data: choix,
+                    success: function () {
+                        alert('Destination supprimée');
+                    },
+                    error: function () {
+                        alert('Impossible de supprimer. Peut-être la catégorie est liée à une tache?');
+                    }
+                });
+            })
+        }
+        
+            //function LoadCategories() {
+            //    $.ajax({
+            //        url: '/api/destinations',
+            //        success: function (categories) {
+            //            var divListeCategories = $('#listeCategories');
+            //            divListeCategories.empty();
+            //            for (var categorie of categories) {
+            //                var divCategorie = $('<div class="Categorie"></div>');
+            //                RemplirDivCategorie(divCategorie, categorie);
+            //                divListeCategories.append(divCategorie);
+            //            }
+            //        }
+            //    });
+            //}
+
+
+
     </script>
 </body>
 </html>
