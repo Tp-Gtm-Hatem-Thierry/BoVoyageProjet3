@@ -95,6 +95,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Application\css\style.css" />
+    <Content Include="Application\html\Model.html" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -137,8 +139,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Application\css\" />
-    <Folder Include="Application\html\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
