@@ -4,8 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace BoVoyageProjet3.Models
 {
@@ -20,7 +19,7 @@ namespace BoVoyageProjet3.Models
 
         public int VoyageID { get; set; }
 
-        [ForeignKey("VoyageID")]
+        [ForeignKey("VoyageID")] //a tester
         public ICollection<Voyage> Voyages { get; set; }
         
     }

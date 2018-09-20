@@ -10,9 +10,13 @@ namespace BoVoyageProjet3.Models
     public class DossierReservation
     {
         public  int Id { get; set; }
+        [Required]
         public int NumeroUnique { get; set; }
+        [Required]
         public string NumeroCarteBancaire { get; set; }
+        //[Required]
         public decimal PrixParPersonne { get; set; }
+        //[Required]
         public decimal PrixTotal { get; set; }
         //{
         //    get
@@ -43,7 +47,7 @@ namespace BoVoyageProjet3.Models
         public Voyage Voyage { get; set; }
 
         //[ForeignKey("ClientId")]
-        //public  Client Client { get; set; }
+        public Client Client { get; set; }
 
         public ICollection<Assurance> Assurances { get; set; }
         public ICollection<Participant> Participants { get; set; }
@@ -51,5 +55,5 @@ namespace BoVoyageProjet3.Models
 
 
     public enum EtatDossierReservation { EnAttente, EnCours, Refuse, Accepte, Clos, Annule }
-    public enum RaisonAnnulationDossier { Client = 1, PlacesInsuffisantes = 2, PaiementRefuse = 3 }
+    public enum RaisonAnnulationDossier { Client = 1, PlacesInsuffisantes = 2, SoldeInsuffisant = 3 }
 }
