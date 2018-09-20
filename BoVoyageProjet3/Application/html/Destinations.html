@@ -19,6 +19,28 @@
 
 <!--Menu destination ?-->
 <body>
+    <!--Menu navigation-->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">BoVoyage : :</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <!--<a class="nav-link" href="/Application/html/Tache.html">Taches</a>-->
+                </li>
+                <!--"nav-item active" permet de griser, degriser un lien href-->
+                <li class="nav-item active">
+                    <!--<a class="nav-link" href="/Application/html/Categories.html"> Catégories<span class="sr-only">(current)</span></a>-->
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> S'enregister</a></li>-->
+                <li class="nav-item">
+                    <!--<a class="nav-link" href="/Application/html/UserAgence.html"><span class="glyphicon glyphicon-log-in"></span> Gestion Commercial</a>-->
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <h1>Destinations :</h1>
     <span></span>
     <br />
@@ -54,7 +76,7 @@
 
     <!--<input type="submit" name="clic" value="Supprimer" />-->
 
-    <button name="clic"type="button" onclick="return Supprimer();">Supprimer</button>
+    <button name="clic" type="button" onclick="return Supprimer();">Supprimer</button>
 
     <!--Creer un formulaire pour enregistrer une nouvelle destination-->
     <!--Creer un formulaire pour enregistrer une nouvelle destination-->
@@ -123,21 +145,21 @@
                 });
             })
         }
-        
-            //function LoadCategories() {
-            //    $.ajax({
-            //        url: '/api/destinations',
-            //        success: function (categories) {
-            //            var divListeCategories = $('#listeCategories');
-            //            divListeCategories.empty();
-            //            for (var categorie of categories) {
-            //                var divCategorie = $('<div class="Categorie"></div>');
-            //                RemplirDivCategorie(divCategorie, categorie);
-            //                divListeCategories.append(divCategorie);
-            //            }
-            //        }
-            //    });
-            //}
+
+                //function LoadCategories() {
+                //    $.ajax({
+                //        url: '/api/destinations',
+                //        success: function (categories) {
+                //            var divListeCategories = $('#listeCategories');
+                //            divListeCategories.empty();
+                //            for (var categorie of categories) {
+                //                var divCategorie = $('<div class="Categorie"></div>');
+                //                RemplirDivCategorie(divCategorie, categorie);
+                //                divListeCategories.append(divCategorie);
+                //            }
+                //        }
+                //    });
+                //}
 
 
 

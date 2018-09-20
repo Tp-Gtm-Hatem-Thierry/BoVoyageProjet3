@@ -16,6 +16,6 @@ namespace BoVoyageProjet3
     }
 }
 /* Affichage>Autre fentre> add-migration "le nom de la migration" va creer une classe :
-  add-migration Init << nom de la migration que l'on a donné
 
-  update-database << creatin de la base de donnee*/
+  add-migration >> Init << nom de la migration que l'on a donné
+  update-database << creation de la base de donnee*/
