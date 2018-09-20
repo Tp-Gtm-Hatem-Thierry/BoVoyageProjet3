@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoVoyageProjet3.Models
 {
+    //Model et attributs de la table Voyage pour la base de donnée
     public class Voyage
     {
         public int Id { get; set; }

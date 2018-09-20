@@ -8,9 +8,9 @@ using System.Web;
 
 namespace BoVoyageProjet3.Models
 {
+    //Model et attributs de la table AgenceVoyage pour la base de donnée
     public class AgenceVoyage
     {
-
         public int Id { get; set; }
 
         [Required]
@@ -19,7 +19,7 @@ namespace BoVoyageProjet3.Models
 
         public int VoyageID { get; set; }
 
-        //[ForeignKey("VoyageId")] //a tester
+        //^^[ForeignKey("VoyageId")] //a tester
         public ICollection<Voyage> Voyages { get; set; }
 
     }

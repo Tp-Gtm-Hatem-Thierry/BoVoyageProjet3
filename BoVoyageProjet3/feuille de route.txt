@@ -1,0 +1,5 @@
+Lexique :
+
+//^^ commentaire à verifier			touches Alt + treïma, à droite de la touche P
+//¤	 commentaire à nettoyer			touches Alt-Gr + $
+

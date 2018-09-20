@@ -7,10 +7,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoVoyageProjet3.Models
 {
-    //Model de table Paticipant
+    //Model et attributs de la table Participant pour la base de donnée
     public class Participant : Personne
     {
-        //public new int Id { get; set; }
+        //^^public new int Id { get; set; }
 
         public int NumeroUnique { get; set; }
 
@@ -24,7 +24,7 @@ namespace BoVoyageProjet3.Models
                     return 0d;
             }
         }
-
+        //¤Voir si Reduction et NomComplet peuvent etre basculer en bas vis a vis de la BD
         public int DossierReservationId { get; set; }
 
         [ForeignKey("DossierReservationId")]
@@ -34,10 +34,9 @@ namespace BoVoyageProjet3.Models
         {
             get
             {
-                return Civilite + " " + Nom + " " + Prenom;
+                return Civilite + " " + Nom + " " + Prenom + " "; //¤ ajout de '+ " " ' suite à prénom. Est ce necessaire ?
             }
         }
-
 
     }
 }

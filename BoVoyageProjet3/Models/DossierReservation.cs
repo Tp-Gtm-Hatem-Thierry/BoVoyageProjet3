@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoVoyageProjet3.Models
 {
+    //Model et attributs de la table DossierReservation pour la base de donnée
     public class DossierReservation
     {
         public int Id { get; set; }
@@ -17,11 +18,11 @@ namespace BoVoyageProjet3.Models
         [Required]
         public string NumeroCarteBancaire { get; set; }
 
-        //[Required]
-        //prix par perszonne a calculer
+        //^^[Required]
+        //^^prix par perszonne a calculer
         public decimal PrixParPersonne { get; set; }
 
-        //[Required]
+        //^^[Required]
         public decimal PrixTotal { get; set; }
 
         //{
@@ -51,7 +52,7 @@ namespace BoVoyageProjet3.Models
 
         public int ClientId { get; set; }
 
-        public int ParticipantId { get; set; }
+        public int ParticipantId { get; set; } //¤ FK ou pas ? car Id
 
         [ForeignKey("VoyageId")]
         public Voyage Voyage { get; set; }
@@ -59,10 +60,10 @@ namespace BoVoyageProjet3.Models
         [ForeignKey("ClientId")]
         public Client Client { get; set; }
 
-        //[ForeignKey("VoyageId")]
-        //public Assurance Assurances { get; set; } //suppression collection
+        //^^[ForeignKey("VoyageId")]
+        //^^public Assurance Assurances { get; set; } //suppression collection
 
-        //[ForeignKey("ParticipantId")]
+        //^^[ForeignKey("ParticipantId")]
 
         public List<Participant> Participants { get; set; } //suppression collection
         public List<Assurance> Assurances { get; set; } //suppression collection

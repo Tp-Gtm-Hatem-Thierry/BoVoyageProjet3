@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoVoyageProjet3.Models
 {
-    //Model de table Assurance
+    //Model et attributs de la table Assurance pour la base de donnée
     public class Assurance
     {
         public int Id { get; set; }
@@ -21,7 +21,7 @@ namespace BoVoyageProjet3.Models
         public List<DossierReservation> DossierReservations { get; set; } //suppression collection
 
         public TypeAssurance TypeAssurance { get; set; }
-        //public virtual ICollection<DossierReservation> DossierReservations { get; set; }
+        //^^public virtual ICollection<DossierReservation> DossierReservations { get; set; }
     }
     public enum TypeAssurance { Annulation = 1 }
 

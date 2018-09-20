@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoVoyageProjet3.Models
 {
-    //Model de tableau Personne avec ses attribues
+    //Model et attributs de la table Personne pour la base de donnée
     public abstract class Personne
     {
         public int Id { get; set; }
@@ -28,7 +28,7 @@ namespace BoVoyageProjet3.Models
         public string Adresse { get; set; }
 
         [Required]
-        [StringLength(12)]
+        [StringLength(15)]
         public string Telephone { get; set; }
 
         [Required]
