@@ -10,12 +10,16 @@ namespace BoVoyageProjet3.Models
     public class DossierReservation
     {
         public  int Id { get; set; }
+
         [Required]
         public int NumeroUnique { get; set; }
+
         [Required]
         public string NumeroCarteBancaire { get; set; }
+
         //[Required]
         public decimal PrixParPersonne { get; set; }
+        //prix par perszonne a calculer
         //[Required]
         public decimal PrixTotal { get; set; }
         //{
