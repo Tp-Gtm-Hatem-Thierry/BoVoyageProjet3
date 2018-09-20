@@ -88,8 +88,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Destination.cs" />
-    <Compile Include="Models\Test.cs" />
+    <Compile Include="Models\AgenceVoyage.cs" />
+    <Compile Include="Models\Assurance.cs" />
+    <Compile Include="Models\AssuranceDossierReservation.cs" />
+    <Compile Include="Models\Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
