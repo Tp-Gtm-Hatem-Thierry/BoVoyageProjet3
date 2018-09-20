@@ -130,6 +130,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Application\css\" />
+    <Folder Include="Application\html\" />
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
