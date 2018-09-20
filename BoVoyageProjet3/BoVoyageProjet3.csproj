@@ -105,11 +105,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201809201052391_Init.cs" />
-    <Compile Include="Migrations\201809201052391_Init.Designer.cs">
-      <DependentUpon>201809201052391_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgenceVoyage.cs" />
     <Compile Include="Models\Assurance.cs" />
     <Compile Include="Models\Client.cs" />
@@ -134,11 +129,7 @@
     <Folder Include="Application\html\" />
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201809201052391_Init.resx">
-      <DependentUpon>201809201052391_Init.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

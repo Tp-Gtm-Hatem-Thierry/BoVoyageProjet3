@@ -22,6 +22,7 @@ namespace BoVoyageProjet3.Models
         //prix par perszonne a calculer
         //[Required]
         public decimal PrixTotal { get; set; }
+        
         //{
         //    get
         //    {
@@ -45,17 +46,18 @@ namespace BoVoyageProjet3.Models
         public RaisonAnnulationDossier RaisonAnnulationDossier { get; set; }
         public int VoyageId { get; set; }
         public int ClientId { get; set; }
-
+        public int ParticipantId { get; set; }
 
         [ForeignKey("VoyageId")]
         public Voyage Voyage { get; set; }
 
-        //[ForeignKey("ClientId")]
+        [ForeignKey("ClientId")]
         public Client Client { get; set; }
 
         [ForeignKey("VoyageId")]
         public Assurance Assurances { get; set; } //suppression collection
 
+        [ForeignKey("ParticipantId")]
         public List<Participant> Participants { get; set; } //suppression collection
     }
 
