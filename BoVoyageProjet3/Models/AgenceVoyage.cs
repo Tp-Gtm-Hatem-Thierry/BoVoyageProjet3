@@ -19,7 +19,7 @@ namespace BoVoyageProjet3.Models
 
         public int VoyageID { get; set; }
 
-        [ForeignKey("VoyageID")] //a tester
+        //[ForeignKey("VoyageId")] //a tester
         public ICollection<Voyage> Voyages { get; set; }
         
     }

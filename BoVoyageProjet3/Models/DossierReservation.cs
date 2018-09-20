@@ -53,8 +53,10 @@ namespace BoVoyageProjet3.Models
         //[ForeignKey("ClientId")]
         public Client Client { get; set; }
 
-        public ICollection<Assurance> Assurances { get; set; }
-        public ICollection<Participant> Participants { get; set; }
+        [ForeignKey("VoyageId")]
+        public Assurance Assurances { get; set; } //suppression collection
+
+        public List<Participant> Participants { get; set; } //suppression collection
     }
 
 
