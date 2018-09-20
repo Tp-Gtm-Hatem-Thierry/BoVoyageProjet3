@@ -21,6 +21,6 @@ namespace BoVoyageProjet3.Models
 
         //[ForeignKey("VoyageId")] //a tester
         public ICollection<Voyage> Voyages { get; set; }
-        
+
     }
 }

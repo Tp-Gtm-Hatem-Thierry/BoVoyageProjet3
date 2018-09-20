@@ -9,7 +9,7 @@ namespace BoVoyageProjet3.Models
 {
     public class DossierReservation
     {
-        public  int Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public int NumeroUnique { get; set; }
@@ -18,11 +18,12 @@ namespace BoVoyageProjet3.Models
         public string NumeroCarteBancaire { get; set; }
 
         //[Required]
-        public decimal PrixParPersonne { get; set; }
         //prix par perszonne a calculer
+        public decimal PrixParPersonne { get; set; }
+
         //[Required]
         public decimal PrixTotal { get; set; }
-        
+
         //{
         //    get
         //    {
@@ -43,9 +44,13 @@ namespace BoVoyageProjet3.Models
         //    }
         //}
         public EtatDossierReservation EtatDossierReservation { get; set; }
+
         public RaisonAnnulationDossier RaisonAnnulationDossier { get; set; }
+
         public int VoyageId { get; set; }
+
         public int ClientId { get; set; }
+
         public int ParticipantId { get; set; }
 
         [ForeignKey("VoyageId")]
