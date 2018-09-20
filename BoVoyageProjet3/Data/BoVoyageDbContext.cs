@@ -17,7 +17,6 @@ namespace BoVoyageProjet3.Data
         public DbSet<AgenceVoyage> AgenceVoyages { get; set; }
 
         public DbSet<Assurance> Assurances { get; set; }
-
         
         public DbSet<Client> Clients { get; set; }
 
@@ -28,8 +27,6 @@ namespace BoVoyageProjet3.Data
         public DbSet<DossierReservation> DossierReservations { get; set; }
 
         public DbSet<Participant> Participants { get; set; }
-
-        //public DbSet<Personne> Personnes { get; set; }
 
         public DbSet<Voyage> Voyages { get; set; }
 
