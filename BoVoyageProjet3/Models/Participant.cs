@@ -23,7 +23,7 @@ namespace BoVoyageProjet3.Models
 
         public int DossierReservationId { get; set; }
 
-        //[ForeignKey("DossierReservationId")]
+        [ForeignKey("DossierReservationId")]
         public virtual DossierReservation DossierReservation { get; set; }
         public string NomComplet
         {
