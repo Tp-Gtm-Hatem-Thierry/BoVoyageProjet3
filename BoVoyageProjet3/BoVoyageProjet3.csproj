@@ -110,6 +110,10 @@
     <Compile Include="Models\Assurance.cs" />
     <Compile Include="Models\AssuranceDossierReservation.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\DossierReservation.cs" />
+    <Compile Include="Models\Participant.cs" />
+    <Compile Include="Models\Personne.cs" />
+    <Compile Include="Models\Voyage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
