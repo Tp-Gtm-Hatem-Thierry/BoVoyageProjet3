@@ -32,7 +32,6 @@ namespace BoVoyageProjet3.Models
         public string Telephone { get; set; }
 
         [Required]
-        
         public DateTime DateNaissance { get; set; }
 
         public int Age => DateTime.Today.Year - DateNaissance.Year;

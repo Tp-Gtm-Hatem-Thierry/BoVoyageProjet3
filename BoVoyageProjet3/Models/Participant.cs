@@ -11,7 +11,9 @@ namespace BoVoyageProjet3.Models
     public class Participant : Personne
     {
         //public new int Id { get; set; }
+
         public int NumeroUnique { get; set; }
+
         public double Reduction
         {
             get

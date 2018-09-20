@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoVoyageProjet3.Models
 {
-//Model de table Destination
+    //Model de table Destination
     public class Destination
     {
         public int Id { get; set; }
