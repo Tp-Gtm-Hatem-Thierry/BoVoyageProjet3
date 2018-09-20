@@ -105,6 +105,10 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Migrations\201809202243487_Init.cs" />
+    <Compile Include="Migrations\201809202243487_Init.Designer.cs">
+      <DependentUpon>201809202243487_Init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Controllers\AssurancesController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
@@ -140,6 +144,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201809202243487_Init.resx">
+      <DependentUpon>201809202243487_Init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
