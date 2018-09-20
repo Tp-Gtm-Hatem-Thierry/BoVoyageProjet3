@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BoVoyageProjet3.Data;
@@ -25,9 +26,9 @@ namespace BoVoyageProjet3.Controllers
 
         // GET: api/Clients/5
         [ResponseType(typeof(Client))]
-        public IHttpActionResult GetClient(int id)
+        public async Task<IHttpActionResult> GetClient(int id)
         {
-            Client client = db.Clients.Find(id);
+            Client client = await db.Clients.FindAsync(id);
             if (client == null)
             {
                 return NotFound();
@@ -38,7 +39,7 @@ namespace BoVoyageProjet3.Controllers
 
         // PUT: api/Clients/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutClient(int id, Client client)
+        public async Task<IHttpActionResult> PutClient(int id, Client client)
         {
             if (!ModelState.IsValid)
             {
@@ -54,7 +55,7 @@ namespace BoVoyageProjet3.Controllers
 
             try
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -73,7 +74,7 @@ namespace BoVoyageProjet3.Controllers
 
         // POST: api/Clients
         [ResponseType(typeof(Client))]
-        public IHttpActionResult PostClient(Client client)
+        public async Task<IHttpActionResult> PostClient(Client client)
         {
             if (!ModelState.IsValid)
             {
@@ -81,23 +82,23 @@ namespace BoVoyageProjet3.Controllers
             }
 
             db.Clients.Add(client);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = client.Id }, client);
         }
 
         // DELETE: api/Clients/5
         [ResponseType(typeof(Client))]
-        public IHttpActionResult DeleteClient(int id)
+        public async Task<IHttpActionResult> DeleteClient(int id)
         {
-            Client client = db.Clients.Find(id);
+            Client client = await db.Clients.FindAsync(id);
             if (client == null)
             {
                 return NotFound();
             }
 
             db.Clients.Remove(client);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return Ok(client);
         }

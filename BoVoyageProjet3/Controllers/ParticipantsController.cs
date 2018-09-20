@@ -6,12 +6,12 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BoVoyageProjet3.Data;
-using BoVoyageProjet3.Models;
 
-namespace BoVoyageProjet3.Controllers
+namespace BoVoyageProjet3.Models
 {
     public class ParticipantsController : ApiController
     {
@@ -25,9 +25,9 @@ namespace BoVoyageProjet3.Controllers
 
         // GET: api/Participants/5
         [ResponseType(typeof(Participant))]
-        public IHttpActionResult GetParticipant(int id)
+        public async Task<IHttpActionResult> GetParticipant(int id)
         {
-            Participant participant = db.Participants.Find(id);
+            Participant participant = await db.Participants.FindAsync(id);
             if (participant == null)
             {
                 return NotFound();
@@ -38,7 +38,7 @@ namespace BoVoyageProjet3.Controllers
 
         // PUT: api/Participants/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutParticipant(int id, Participant participant)
+        public async Task<IHttpActionResult> PutParticipant(int id, Participant participant)
         {
             if (!ModelState.IsValid)
             {
@@ -54,7 +54,7 @@ namespace BoVoyageProjet3.Controllers
 
             try
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -73,7 +73,7 @@ namespace BoVoyageProjet3.Controllers
 
         // POST: api/Participants
         [ResponseType(typeof(Participant))]
-        public IHttpActionResult PostParticipant(Participant participant)
+        public async Task<IHttpActionResult> PostParticipant(Participant participant)
         {
             if (!ModelState.IsValid)
             {
@@ -81,23 +81,23 @@ namespace BoVoyageProjet3.Controllers
             }
 
             db.Participants.Add(participant);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = participant.Id }, participant);
         }
 
         // DELETE: api/Participants/5
         [ResponseType(typeof(Participant))]
-        public IHttpActionResult DeleteParticipant(int id)
+        public async Task<IHttpActionResult> DeleteParticipant(int id)
         {
-            Participant participant = db.Participants.Find(id);
+            Participant participant = await db.Participants.FindAsync(id);
             if (participant == null)
             {
                 return NotFound();
             }
 
             db.Participants.Remove(participant);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return Ok(participant);
         }

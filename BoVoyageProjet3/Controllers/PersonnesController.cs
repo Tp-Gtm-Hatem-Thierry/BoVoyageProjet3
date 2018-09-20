@@ -10,48 +10,47 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BoVoyageProjet3.Data;
-using BoVoyageProjet3.Models;
 
-namespace BoVoyageProjet3.Controllers
+namespace BoVoyageProjet3.Models
 {
-    public class AssurancesController : ApiController
+    public class PersonnesController : ApiController
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
-        // GET: api/Assurances
-        public IQueryable<Assurance> GetAssurances()
+        // GET: api/Personnes
+        public IQueryable<Personne> GetPersonnes()
         {
-            return db.Assurances;
+            return db.Personnes;
         }
 
-        // GET: api/Assurances/5
-        [ResponseType(typeof(Assurance))]
-        public async Task<IHttpActionResult> GetAssurance(int id)
+        // GET: api/Personnes/5
+        [ResponseType(typeof(Personne))]
+        public async Task<IHttpActionResult> GetPersonne(int id)
         {
-            Assurance assurance = await db.Assurances.FindAsync(id);
-            if (assurance == null)
+            Personne personne = await db.Personnes.FindAsync(id);
+            if (personne == null)
             {
                 return NotFound();
             }
 
-            return Ok(assurance);
+            return Ok(personne);
         }
 
-        // PUT: api/Assurances/5
+        // PUT: api/Personnes/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutAssurance(int id, Assurance assurance)
+        public async Task<IHttpActionResult> PutPersonne(int id, Personne personne)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != assurance.Id)
+            if (id != personne.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(assurance).State = EntityState.Modified;
+            db.Entry(personne).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +58,7 @@ namespace BoVoyageProjet3.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AssuranceExists(id))
+                if (!PersonneExists(id))
                 {
                     return NotFound();
                 }
@@ -72,35 +71,35 @@ namespace BoVoyageProjet3.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Assurances
-        [ResponseType(typeof(Assurance))]
-        public async Task<IHttpActionResult> PostAssurance(Assurance assurance)
+        // POST: api/Personnes
+        [ResponseType(typeof(Personne))]
+        public async Task<IHttpActionResult> PostPersonne(Personne personne)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Assurances.Add(assurance);
+            db.Personnes.Add(personne);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = assurance.Id }, assurance);
+            return CreatedAtRoute("DefaultApi", new { id = personne.Id }, personne);
         }
 
-        // DELETE: api/Assurances/5
-        [ResponseType(typeof(Assurance))]
-        public async Task<IHttpActionResult> DeleteAssurance(int id)
+        // DELETE: api/Personnes/5
+        [ResponseType(typeof(Personne))]
+        public async Task<IHttpActionResult> DeletePersonne(int id)
         {
-            Assurance assurance = await db.Assurances.FindAsync(id);
-            if (assurance == null)
+            Personne personne = await db.Personnes.FindAsync(id);
+            if (personne == null)
             {
                 return NotFound();
             }
 
-            db.Assurances.Remove(assurance);
+            db.Personnes.Remove(personne);
             await db.SaveChangesAsync();
 
-            return Ok(assurance);
+            return Ok(personne);
         }
 
         protected override void Dispose(bool disposing)
@@ -112,9 +111,9 @@ namespace BoVoyageProjet3.Controllers
             base.Dispose(disposing);
         }
 
-        private bool AssuranceExists(int id)
+        private bool PersonneExists(int id)
         {
-            return db.Assurances.Count(e => e.Id == id) > 0;
+            return db.Personnes.Count(e => e.Id == id) > 0;
         }
     }
 }

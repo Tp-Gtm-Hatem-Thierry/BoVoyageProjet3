@@ -6,12 +6,12 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BoVoyageProjet3.Data;
-using BoVoyageProjet3.Models;
 
-namespace BoVoyageProjet3.Controllers
+namespace BoVoyageProjet3.Models
 {
     public class AgenceVoyagesController : ApiController
     {
@@ -25,9 +25,9 @@ namespace BoVoyageProjet3.Controllers
 
         // GET: api/AgenceVoyages/5
         [ResponseType(typeof(AgenceVoyage))]
-        public IHttpActionResult GetAgenceVoyage(int id)
+        public async Task<IHttpActionResult> GetAgenceVoyage(int id)
         {
-            AgenceVoyage agenceVoyage = db.AgenceVoyages.Find(id);
+            AgenceVoyage agenceVoyage = await db.AgenceVoyages.FindAsync(id);
             if (agenceVoyage == null)
             {
                 return NotFound();
@@ -38,7 +38,7 @@ namespace BoVoyageProjet3.Controllers
 
         // PUT: api/AgenceVoyages/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutAgenceVoyage(int id, AgenceVoyage agenceVoyage)
+        public async Task<IHttpActionResult> PutAgenceVoyage(int id, AgenceVoyage agenceVoyage)
         {
             if (!ModelState.IsValid)
             {
@@ -54,7 +54,7 @@ namespace BoVoyageProjet3.Controllers
 
             try
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -73,7 +73,7 @@ namespace BoVoyageProjet3.Controllers
 
         // POST: api/AgenceVoyages
         [ResponseType(typeof(AgenceVoyage))]
-        public IHttpActionResult PostAgenceVoyage(AgenceVoyage agenceVoyage)
+        public async Task<IHttpActionResult> PostAgenceVoyage(AgenceVoyage agenceVoyage)
         {
             if (!ModelState.IsValid)
             {
@@ -81,23 +81,23 @@ namespace BoVoyageProjet3.Controllers
             }
 
             db.AgenceVoyages.Add(agenceVoyage);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = agenceVoyage.Id }, agenceVoyage);
         }
 
         // DELETE: api/AgenceVoyages/5
         [ResponseType(typeof(AgenceVoyage))]
-        public IHttpActionResult DeleteAgenceVoyage(int id)
+        public async Task<IHttpActionResult> DeleteAgenceVoyage(int id)
         {
-            AgenceVoyage agenceVoyage = db.AgenceVoyages.Find(id);
+            AgenceVoyage agenceVoyage = await db.AgenceVoyages.FindAsync(id);
             if (agenceVoyage == null)
             {
                 return NotFound();
             }
 
             db.AgenceVoyages.Remove(agenceVoyage);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return Ok(agenceVoyage);
         }

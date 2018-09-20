@@ -6,12 +6,12 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BoVoyageProjet3.Data;
-using BoVoyageProjet3.Models;
 
-namespace BoVoyageProjet3.Controllers
+namespace BoVoyageProjet3.Models
 {
     public class DossierReservationsController : ApiController
     {
@@ -25,9 +25,9 @@ namespace BoVoyageProjet3.Controllers
 
         // GET: api/DossierReservations/5
         [ResponseType(typeof(DossierReservation))]
-        public IHttpActionResult GetDossierReservation(int id)
+        public async Task<IHttpActionResult> GetDossierReservation(int id)
         {
-            DossierReservation dossierReservation = db.DossierReservations.Find(id);
+            DossierReservation dossierReservation = await db.DossierReservations.FindAsync(id);
             if (dossierReservation == null)
             {
                 return NotFound();
@@ -38,7 +38,7 @@ namespace BoVoyageProjet3.Controllers
 
         // PUT: api/DossierReservations/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutDossierReservation(int id, DossierReservation dossierReservation)
+        public async Task<IHttpActionResult> PutDossierReservation(int id, DossierReservation dossierReservation)
         {
             if (!ModelState.IsValid)
             {
@@ -54,7 +54,7 @@ namespace BoVoyageProjet3.Controllers
 
             try
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -73,7 +73,7 @@ namespace BoVoyageProjet3.Controllers
 
         // POST: api/DossierReservations
         [ResponseType(typeof(DossierReservation))]
-        public IHttpActionResult PostDossierReservation(DossierReservation dossierReservation)
+        public async Task<IHttpActionResult> PostDossierReservation(DossierReservation dossierReservation)
         {
             if (!ModelState.IsValid)
             {
@@ -81,23 +81,23 @@ namespace BoVoyageProjet3.Controllers
             }
 
             db.DossierReservations.Add(dossierReservation);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = dossierReservation.Id }, dossierReservation);
         }
 
         // DELETE: api/DossierReservations/5
         [ResponseType(typeof(DossierReservation))]
-        public IHttpActionResult DeleteDossierReservation(int id)
+        public async Task<IHttpActionResult> DeleteDossierReservation(int id)
         {
-            DossierReservation dossierReservation = db.DossierReservations.Find(id);
+            DossierReservation dossierReservation = await db.DossierReservations.FindAsync(id);
             if (dossierReservation == null)
             {
                 return NotFound();
             }
 
             db.DossierReservations.Remove(dossierReservation);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return Ok(dossierReservation);
         }

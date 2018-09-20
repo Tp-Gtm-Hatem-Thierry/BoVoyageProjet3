@@ -30,5 +30,6 @@ namespace BoVoyageProjet3.Data
 
         public DbSet<Voyage> Voyages { get; set; }
 
+        public System.Data.Entity.DbSet<BoVoyageProjet3.Models.Personne> Personnes { get; set; }
     }
 }

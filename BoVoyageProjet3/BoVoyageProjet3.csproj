@@ -105,29 +105,25 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\DossierReservationsController.cs" />
-    <Compile Include="Controllers\ParticipantsController.cs" />
-    <Compile Include="Controllers\VoyagesController.cs" />
-    <Compile Include="Controllers\AgenceVoyagesController.cs" />
     <Compile Include="Controllers\AssurancesController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
-    <Compile Include="Controllers\DestinationsController.cs" />
     <Compile Include="Data\BoVoyageDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201809201307104_Init.cs" />
-    <Compile Include="Migrations\201809201307104_Init.Designer.cs">
-      <DependentUpon>201809201307104_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgenceVoyage.cs" />
+    <Compile Include="Controllers\AgenceVoyagesController.cs" />
     <Compile Include="Models\Assurance.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Destination.cs" />
+    <Compile Include="Controllers\DestinationsController.cs" />
     <Compile Include="Models\DossierReservation.cs" />
+    <Compile Include="Controllers\DossierReservationsController.cs" />
     <Compile Include="Models\Participant.cs" />
+    <Compile Include="Controllers\ParticipantsController.cs" />
     <Compile Include="Models\Personne.cs" />
+    <Compile Include="Controllers\VoyagesController.cs" />
+    <Compile Include="Controllers\PersonnesController.cs" />
     <Compile Include="Models\_RaisonAnnulationDossier.cs" />
     <Compile Include="Models\Voyage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -143,11 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201809201307104_Init.resx">
-      <DependentUpon>201809201307104_Init.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

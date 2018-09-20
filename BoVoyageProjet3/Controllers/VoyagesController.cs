@@ -6,12 +6,12 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BoVoyageProjet3.Data;
-using BoVoyageProjet3.Models;
 
-namespace BoVoyageProjet3.Controllers
+namespace BoVoyageProjet3.Models
 {
     public class VoyagesController : ApiController
     {
@@ -25,9 +25,9 @@ namespace BoVoyageProjet3.Controllers
 
         // GET: api/Voyages/5
         [ResponseType(typeof(Voyage))]
-        public IHttpActionResult GetVoyage(int id)
+        public async Task<IHttpActionResult> GetVoyage(int id)
         {
-            Voyage voyage = db.Voyages.Find(id);
+            Voyage voyage = await db.Voyages.FindAsync(id);
             if (voyage == null)
             {
                 return NotFound();
@@ -38,7 +38,7 @@ namespace BoVoyageProjet3.Controllers
 
         // PUT: api/Voyages/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutVoyage(int id, Voyage voyage)
+        public async Task<IHttpActionResult> PutVoyage(int id, Voyage voyage)
         {
             if (!ModelState.IsValid)
             {
@@ -54,7 +54,7 @@ namespace BoVoyageProjet3.Controllers
 
             try
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -73,7 +73,7 @@ namespace BoVoyageProjet3.Controllers
 
         // POST: api/Voyages
         [ResponseType(typeof(Voyage))]
-        public IHttpActionResult PostVoyage(Voyage voyage)
+        public async Task<IHttpActionResult> PostVoyage(Voyage voyage)
         {
             if (!ModelState.IsValid)
             {
@@ -81,23 +81,23 @@ namespace BoVoyageProjet3.Controllers
             }
 
             db.Voyages.Add(voyage);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = voyage.Id }, voyage);
         }
 
         // DELETE: api/Voyages/5
         [ResponseType(typeof(Voyage))]
-        public IHttpActionResult DeleteVoyage(int id)
+        public async Task<IHttpActionResult> DeleteVoyage(int id)
         {
-            Voyage voyage = db.Voyages.Find(id);
+            Voyage voyage = await db.Voyages.FindAsync(id);
             if (voyage == null)
             {
                 return NotFound();
             }
 
             db.Voyages.Remove(voyage);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return Ok(voyage);
         }
