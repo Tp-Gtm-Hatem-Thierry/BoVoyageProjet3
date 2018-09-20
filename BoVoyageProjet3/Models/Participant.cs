@@ -33,11 +33,11 @@ namespace BoVoyageProjet3.Models
 
         public string NomComplet
         {
+            //Selon la cardinalite du diag ca va jusqu'à 9, aussi je pense qu'il nous qlq chose à connecter ensuite à la Class Voyage.places que j'ai créé. A valider bien sur.
             get
             {
                 return Civilite + " " + Nom + " " + Prenom + " "; //¤ ajout de '+ " " ' suite à prénom. Est ce necessaire ?
             }
         }
-
     }
 }

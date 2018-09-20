@@ -9,3 +9,15 @@ SwaggerConfig.cs
  remplacer l.108  //c.IncludeXmlComments(GetXmlCommentsPath());
  par ça                       c.IncludeXmlComments(
                             $@"{System.AppDomain.CurrentDomain.BaseDirectory}\bin\BoVoyageProjet3.xml");
+
+Suite modif de model de class (regle de nommage VoyageID>VoyageId)Reageancer les methodes Model si necessaire, suprimer le fichier init, drop la base avec VS,SqlEx, refaire la migration en precisant dans le commit le pourquoi, tester ensuite si il se lance et postmann ok.)
+
+Sitation :
+
+Class Assurance 
+* D’autres types d’assurance (rapatriement, vol, …)
+sont également à l’étude. Le système devra pouvoir évoluer pour prendre en compte plusieurs
+assurances sur un dossier.
+
+Validation à faire :
+creation d'une interface pour RaisonAnnulationDossier car le diag precise <<use>> 

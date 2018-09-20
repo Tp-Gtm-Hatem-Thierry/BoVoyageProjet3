@@ -128,6 +128,7 @@
     <Compile Include="Models\DossierReservation.cs" />
     <Compile Include="Models\Participant.cs" />
     <Compile Include="Models\Personne.cs" />
+    <Compile Include="Models\RaisonAnnulationDossier.cs" />
     <Compile Include="Models\Voyage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
