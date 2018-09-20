@@ -18,8 +18,7 @@ namespace BoVoyageProjet3.Data
 
         public DbSet<Assurance> Assurances { get; set; }
 
-        public DbSet<AssuranceDossierReservation> AssuranceDossierReservations { get; set; }
-
+        
         public DbSet<Client> Clients { get; set; }
 
         public DbSet<Destination> Destinations { get; set; }
