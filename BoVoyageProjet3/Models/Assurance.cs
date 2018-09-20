@@ -7,10 +7,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoVoyageProjet3.Models
 {
+    //Model de table Assurance
     public class Assurance
     {
         public int Id { get; set; }
+
+        [Required]
         public decimal Montant { get; set; }
+
         public TypeAssurance TypeAssurance { get; set; }
         //public virtual ICollection<DossierReservation> DossierReservations { get; set; }
     }
