@@ -114,7 +114,6 @@
     <Compile Include="Migrations\201809202243487_Init.Designer.cs">
       <DependentUpon>201809202243487_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Controllers\AssurancesController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Data\BoVoyageDbContext.cs" />

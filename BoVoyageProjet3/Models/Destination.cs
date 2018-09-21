@@ -16,11 +16,11 @@ namespace BoVoyageProjet3.Models
         public string Continent { get; set; }
 
         [Required]
-        [StringLength(60)] //¤ taille raisonnable pour le nom d'un pays je pense
+        [StringLength(60)]
         public string Pays { get; set; }
 
-        [Required] //^^ Ajout de region suivant le diagramme de class
-        [StringLength(60)]
+        [Required]
+        [StringLength(120)]
         public string Region { get; set; }
 
         [Required]

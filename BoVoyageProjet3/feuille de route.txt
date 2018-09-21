@@ -35,3 +35,5 @@ https://www.google.fr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&
 https://www.google.fr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwi-ta6E9MrdAhVKlxoKHRDPAL8QjRx6BAgBEAU&url=http%3A%2F%2Fwww.id-vacance.fr%2Fiphone-a-letranger-des-conseils-pour-un-voyage-serein-4354%2F&psig=AOvVaw0ghoJOpgws2VFA1kkHivdD&ust=1537578286524688
 https://www.google.fr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwjZpauS9MrdAhUr-YUKHYEDAAwQjRx6BAgBEAU&url=https%3A%2F%2Fville-massy.fr%2Farticle%2Fle-catalogue-des-s%25C3%25A9jours-de-vacances&psig=AOvVaw0ghoJOpgws2VFA1kkHivdD&ust=1537578286524688
 
+Dans le web config :
+    <!--Catalog (origine)=BoVoyage-->

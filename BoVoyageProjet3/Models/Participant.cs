@@ -10,12 +10,9 @@ namespace BoVoyageProjet3.Models
     //Model et attributs de la table Participant pour la base de donnée
     public class Participant : Personne
     {
-        //^^public new int Id { get; set; }
-        [Required] //^^
         public int NumeroUnique { get; set; }
 
-        [Required] //^^
-        public double Reduction //¤ Le diagramme indique du float et non du int pour le type mais on laisse tel quel
+        public double Reduction
         {
             get
             {

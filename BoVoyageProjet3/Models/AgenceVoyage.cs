@@ -17,8 +17,7 @@ namespace BoVoyageProjet3.Models
         [StringLength(100)]
         public string Nom { get; set; }
 
-        //^^[ForeignKey("VoyageId")] //a tester
-        public int VoyageId { get; set; }//^^ regle de nommage VoyageID>VoyageId
+        public int? VoyageId { get; set; }
 
         public ICollection<Voyage> Voyages { get; set; }
 
