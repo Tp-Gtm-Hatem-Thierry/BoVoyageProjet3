@@ -21,3 +21,17 @@ assurances sur un dossier.
 
 Validation à faire :
 creation d'une interface pour RaisonAnnulationDossier car le diag precise <<use>> 
+
+
+Script : Tout est dans la page voyage.html, pour le script... il verifier que cela fonctionne puis faire mise en forme des pages
+
+
+Lien src img pour les pages html :
+https://www.google.fr/imgres?imgurl=https%3A%2F%2Fwww.location-vacances-express.com%2Fguide%2Fwp-content%2Fuploads%2F2016%2F06%2Fvacances-inoubliables.jpg&imgrefurl=https%3A%2F%2Fwww.location-vacances-express.com%2Fguide%2Fdes-objets-indispensables-pour-les-vacances%2F&docid=ipvrNGwAnAGQrM&tbnid=YfWgdge_Pa_6kM%3A&vet=10ahUKEwjuoOK68srdAhXIsKQKHdGpAuMQMwgzKAAwAA..i&w=2356&h=1130&safe=active&bih=802&biw=1253&q=photo%20vacance&ved=0ahUKEwjuoOK68srdAhXIsKQKHdGpAuMQMwgzKAAwAA&iact=mrc&uact=8
+https://www.google.fr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwi3lPuM88rdAhUGRBoKHR-LCfkQjRx6BAgBEAU&url=https%3A%2F%2Fvacancesmaurice.com%2Fvacance-ile-maurice-c-50.html&psig=AOvVaw3R_wk5tner8ii27YSScK9s&ust=1537577978203561
+https://www.google.fr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjviLWe88rdAhUSnRoKHdzHAMgQjRx6BAgBEAU&url=http%3A%2F%2Fwww.ma-location-vacances.fr%2F&psig=AOvVaw3R_wk5tner8ii27YSScK9s&ust=1537577978203561
+https://www.google.fr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiDkq3a88rdAhULWxoKHXESA7EQjRx6BAgBEAU&url=https%3A%2F%2Fnews-assurances.com%2Fdossiers%2Fdossier-voyage-et-sante%2F016745386&psig=AOvVaw0ghoJOpgws2VFA1kkHivdD&ust=1537578286524688
+https://www.google.fr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj-vKf688rdAhUBUhoKHQsiAZAQjRx6BAgBEAU&url=https%3A%2F%2Fwww.ou-et-quand.net%2Fblog%2Fou-partir-avec-des-enfants%2F&psig=AOvVaw0ghoJOpgws2VFA1kkHivdD&ust=1537578286524688
+https://www.google.fr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwi-ta6E9MrdAhVKlxoKHRDPAL8QjRx6BAgBEAU&url=http%3A%2F%2Fwww.id-vacance.fr%2Fiphone-a-letranger-des-conseils-pour-un-voyage-serein-4354%2F&psig=AOvVaw0ghoJOpgws2VFA1kkHivdD&ust=1537578286524688
+https://www.google.fr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwjZpauS9MrdAhUr-YUKHYEDAAwQjRx6BAgBEAU&url=https%3A%2F%2Fville-massy.fr%2Farticle%2Fle-catalogue-des-s%25C3%25A9jours-de-vacances&psig=AOvVaw0ghoJOpgws2VFA1kkHivdD&ust=1537578286524688
+

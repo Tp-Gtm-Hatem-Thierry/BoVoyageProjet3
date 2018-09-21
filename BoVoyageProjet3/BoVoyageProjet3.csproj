@@ -98,6 +98,7 @@
     <Content Include="Application\css\style.css" />
     <Content Include="Application\html\Con_ServiceCommercial.html" />
     <Content Include="Application\html\Con_ClientEnregistre.html" />
+    <Content Include="Application\html\Client.html" />
     <Content Include="Application\html\Voyage.html" />
     <Content Include="Application\html\Connection.html" />
     <Content Include="Application\html\Destinations.html" />
