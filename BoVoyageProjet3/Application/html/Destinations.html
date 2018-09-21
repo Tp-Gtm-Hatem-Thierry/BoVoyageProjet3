@@ -44,7 +44,7 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item">
-                    <a class="nav-item " href="AgencesVoyages.html" disabled> Agences </a>
+                    <a class="nav-link " href="AgencesVoyages.html" disabled> Agences </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/Application/html/Voyages.html">Voyages</a>
@@ -119,6 +119,8 @@
         //fetch('/api/destinations')
         //    .then(response => response.json())
         //    .then(json => console.log(json))
+        $(document).ready(function () {
+
         $.ajax({
             type: 'GET',
             url: '/api/destinations',
@@ -126,6 +128,7 @@
             //dataType:'json',
             success: function (data) { // on affiche le retour.
                 for (var element of data) {
+                    //span peut etre remplacer par une class, en fait ici on recupere l'info'
                     $('span').append(element.Id + " " + element.Pays + " " + element.Description + '<br>');
                 }
             },
@@ -133,6 +136,8 @@
                 alert('Ca Marche pas !');
             }
         });
+        })
+
         function Enregistrer() {
             let destination = {
                 Continent: $('#Continent').val(),
@@ -173,6 +178,8 @@
                     }
                 });
             })
+
+            
         })
                             //function LoadCategories() {
                             //    $.ajax({
