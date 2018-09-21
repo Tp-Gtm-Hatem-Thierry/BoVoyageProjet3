@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,73 +10,105 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+          crossorigin="anonymous">
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!--<link rel="stylesheet" href="/Application/css/application.style.css" />-->
+    <style>
+        .Categorie {
+            border: solid 1px lightgray;
+            padding: 10px;
+        }
+
+            .Categorie button {
+                float: right;
+                margin-right: 5px;
+                display: none;
+            }
+
+            .Categorie:hover button {
+                display: block;
+            }
+    </style>
 </head>
+
+
+<!--Menu destination ?-->
 <body>
-    <!--Pensez à basculer le style dans le fichier css-->
-    <!--Menu entête-->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">BoVoyage : :</a>
+        <a class="navbar-brand" href="/"><i class="fas fa-check-double"></i> BoVoyage</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
+
                 <li class="nav-item">
-                    <a class="nav-link" href="/Application/html/Tache.html">Taches</a>
+                    <a class="nav-link" href="/Application/html/Destinations.html">Destinations</a>
                 </li>
-                <!--"nav-item active" permet de griser, degriser un lien href-->
+                <li class="nav-item">
+                    <a class="nav-link" href="/Application/html/Agences.html" disabled>Agences</a>
+                </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/Application/html/Categories.html"> Catégories<span class="sr-only">(current)</span></a>
+                    <a class="nav-item active" href="#" disabled>Voyages <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> S'enregister</a></li>-->
-                <li class="nav-item">
-                    <a class="nav-link" href="/Application/html/UserAgence.html"><span class="glyphicon glyphicon-log-in"></span> Gestion Commercial</a>
-                </li>
-            </ul>
+
         </div>
     </nav>
+
     <h1>Liste des voyages</h1>
-    <span id="spanliste"></span>
+    <span></span>
     <h1>Ajouter un voyage</h1>
     <form novalidate>
         <div class="form-group">
             <label for="DateAller">DateAller</label>
             <input type="date" class="form-control" id="DateAller" required />
+         
 
         </div>
+
         <div class="form-group">
             <label for="DateRetour">DateRetour</label>
             <input type="date" class="form-control" id="DateRetour" required />
         </div>
+
         <div class="form-group">
             <label for="Destination">Destination</label>
             <select class="form-control" id="Destination"></select>
         </div>
+
         <div class="form-group">
             <label for="Agence">Agence</label>
             <select class="form-control" id="Agence"></select>
         </div>
+
         <div class="form-group">
             <label for="PlacesDisponibles">Places disponibles</label>
             <input type="text" class="form-control" id="PlacesDisponibles" required />
         </div>
+
         <div class="form-group">
             <label for="PrixPersonne">Prix par personne</label>
             <input type="text" class="form-control" id="PrixPersonne" required />
         </div>
+
         <input type="submit" value="Enregistrer" onclick="return Enregistrer();">
+
     </form>
-    <h1>Supprimer une voyage</h1>
+    <h1>Supprimer une agence</h1>
     <!--Supprimer-->
     <label for="Id">Id de l'agence à supprimer :</label>
+
     <form name="form1" id="form1">
         <input type="text" name="name" id="choix" />
+
         <input type="button" id="Save" value="Save Data" />
     </form>
+
     <script>
+
         function LoadDestinations() {
             $.ajax({
                 url: '/api/destinations',
@@ -86,7 +119,7 @@
                     for (destination of destinations) {
                         var option = $('<option></option>');
                         option.val(destination.Id);
-                        option.text('(' + destination.Id + ')' + ' ' + destination.Continent + ' ' + destination.Pays);
+                        option.text('('+destination.Id+')'+' '+destination.Continent+' '+destination.Pays);
                         select.append(option);
                     }
                 }
@@ -101,29 +134,35 @@
                     select.append($('<option></option>')); // élément vide
                     for (agence of agences) {
                         var option = $('<option></option>');
-                        option.val(agence.Id);
+                        option.val(destination.Id);
                         option.text('(' + agence.Id + ')' + ' ' + agence.Nom);
                         select.append(option);
                     }
                 }
             });
         }
+
         $.ajax({
             type: 'GET',
             url: '/api/voyages',
             //data: data,
             //dataType:'json',
+
             success: function (data) { // on affiche le retour.
                 for (var element of data) {
-                    $('#spanliste').append(element.Id + " " + element.DestinationId + ' ' + element.DateAller + ' ' + element.DateRetour + ' ' + element.PrixParPersonne + '€' + ' ' + element.PlacesDisponibles+ '<br>');
+
+                    $('span').append(element.Id + " " + element.DestinationId + '<br>');
                 }
                 console.log(data)
             },
+
             error: function () {
                 alert('Impossible de charger la liste');
             }
         });
+
         function Enregistrer() {
+
             let voyage = {
                 DateAller: $('#DateAller').val(),
                 DateRetour: $('#DateRetour').val(),
@@ -131,12 +170,14 @@
                 PrixParPersonne: $('#PrixPersonne').val(),
                 DestinationId: $('#Destination').val(),
                 AgenceVoyageId: $('#Agence').val()
+
             };
             $.ajax({
                 type: 'POST',
                 url: '/api/Voyages',
                 data: voyage,
                 success: function () {
+
                 },
                 error: function () {
                     alert('Une erreur est survenue lors de lenregistrement');
@@ -144,8 +185,12 @@
             });
             return false;
         }
+
+
         $(document).ready(function () {
+
             $('#Save').click(function () {
+
                 var choix = $('#choix').val();
                 //var sup = new Object();
                 //sup.id = $('#choix').val();
@@ -166,6 +211,7 @@
         })
         LoadDestinations();
         LoadAgences();
+
     </script>
 </body>
-</html> 
+</html>

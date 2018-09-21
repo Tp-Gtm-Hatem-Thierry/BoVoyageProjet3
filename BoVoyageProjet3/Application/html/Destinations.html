@@ -56,7 +56,6 @@
 
         </div>
     </nav>
-
     <h1>Liste des destinations :</h1>
     <span></span>
     <br />
@@ -107,41 +106,33 @@
         //fetch('/api/destinations')
         //    .then(response => response.json())
         //    .then(json => console.log(json))
-
         $.ajax({
             type: 'GET',
             url: '/api/destinations',
             //data: data,
             //dataType:'json',
-
             success: function (data) { // on affiche le retour.
                 for (var element of data) {
-
                     $('span').append(element.Id + " " + element.Pays + " " + element.Description + '<br>');
                 }
             },
-
             error: function () {
                 alert('Ca Marche pas !');
             }
         });
-
-
         function Enregistrer() {
-
             let destination = {
                 Continent: $('#Continent').val(),
                 Pays: $('#Pays').val(),
                 Description: $('#Description').val(),
                 Region: $('#Region').val()
-
             };
             $.ajax({
                 type: 'POST',
                 url: '/api/destinations',
                 data: destination,
                 success: function () {
-
+                    alert('Destination ajoutée');
                 },
                 error: function () {
                     alert('Aïe aïe aïe carambla !!');
@@ -149,13 +140,9 @@
             });
             return false;
         }
-
         //--------------------------------------
-
         $(document).ready(function () {
-
             $('#Save').click(function () {
-
                 var choix = $('#choix').val();
                 //var sup = new Object();
                 //sup.id = $('#choix').val();
@@ -174,25 +161,20 @@
                 });
             })
         })
-
-
-                        //function LoadCategories() {
-                        //    $.ajax({
-                        //        url: '/api/destinations',
-                        //        success: function (categories) {
-                        //            var divListeCategories = $('#listeCategories');
-                        //            divListeCategories.empty();
-                        //            for (var categorie of categories) {
-                        //                var divCategorie = $('<div class="Categorie"></div>');
-                        //                RemplirDivCategorie(divCategorie, categorie);
-                        //                divListeCategories.append(divCategorie);
-                        //            }
-                        //        }
-                        //    });
-                        //}
-
-
-
+                            //function LoadCategories() {
+                            //    $.ajax({
+                            //        url: '/api/destinations',
+                            //        success: function (categories) {
+                            //            var divListeCategories = $('#listeCategories');
+                            //            divListeCategories.empty();
+                            //            for (var categorie of categories) {
+                            //                var divCategorie = $('<div class="Categorie"></div>');
+                            //                RemplirDivCategorie(divCategorie, categorie);
+                            //                divListeCategories.append(divCategorie);
+                            //            }
+                            //        }
+                            //    });
+                            //}
     </script>
 </body>
 </html>

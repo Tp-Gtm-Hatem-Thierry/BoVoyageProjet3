@@ -27,8 +27,8 @@ namespace BoVoyageProjet3.Models
         [Required]
         public int DestinationId { get; set; }
 
-        //^^[Required]
-        public int Places { get; set; } //^^Suivant le diag de class, reserver(places :int):void
+        
+     
 
         [Required]
         public int AgenceVoyageId { get; set; }

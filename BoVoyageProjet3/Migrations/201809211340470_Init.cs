@@ -26,7 +26,6 @@ namespace BoVoyageProjet3.Migrations
                         PlacesDisponibles = c.Int(nullable: false),
                         PrixParPersonne = c.Decimal(nullable: false, precision: 18, scale: 2),
                         DestinationId = c.Int(nullable: false),
-                        Places = c.Int(nullable: false),
                         AgenceVoyageId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
