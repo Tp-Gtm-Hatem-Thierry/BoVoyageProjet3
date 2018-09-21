@@ -56,11 +56,10 @@
     </nav>
 
 
-    <div id="spanliste" style="border:2px solid black"></div>
+    <div>Pas fini de coder..</div>
     <h1> Liste des Dossiers </h1>
-    <div class="form-group">
-        <label for="dossiers"> Liste des Dossiers </label>
-        <select class="form-control" id="Dossiers"></select>
+    <div class="form-group" style="border:2px solid black">
+        
     </div>
     <br />
 
@@ -86,7 +85,8 @@
 
         <div class="form-group">
             <label for="ClientId">Client</label>
-            <input type="text" class="form-control" id="ClientId" required />
+            
+            <select class="form-control" id="client"></select>
         </div>
 
         <div class="form-group">
@@ -154,6 +154,22 @@
             });
         }
 
+        function LoadClients() {
+            $.ajax({
+                url: '/api/clients',
+                success: function (clients) {
+                    var select = $("#client");
+                    select.empty();
+                    select.append($('<option></option>')); // élément vide
+                    for (client of clients) {
+                        var option = $('<option></option>');
+                        option.val(client.Id);
+                        option.text('(' + client.Id + ')' + ' ' + client.Civilite + ' ' + client.Nom + ' ' + client.Prenom);
+                        select.append(option);
+                    }
+                }
+            });
+        }
         $(document).ready(function () {
 
             $.ajax({
@@ -219,6 +235,7 @@
 
         })
         LoadVoyages();
+        LoadClients();
     </script>
 
 </body>

@@ -75,13 +75,11 @@
         </div>
     </nav>
 
-    <div id="spanliste" style="border:2px solid black"></div>
+    
 
     <h1> Liste des destinations </h1>
-    <div class="form-group">
-        <label for="destinations"> Liste des destinations </label>
-        <select class="form-control" id="Destinations"></select>
-    <br />
+    <div class="form-group" id="list" style="border:2px solid black">
+        
     </div>
     <!--Ajout-->
 
@@ -134,7 +132,7 @@
             success: function (data) { // on affiche le retour.
                 for (var element of data) {
                     //span peut etre remplacer par une class, en fait ici on recupere l'info'
-                    $('div').append(element.Id + " " + element.Pays + " " + element.Description + '<br>');
+                    $('#list').append(element.Id + " " + element.Pays + " " + element.Description + '<br>');
                 }
             },
             error: function () {

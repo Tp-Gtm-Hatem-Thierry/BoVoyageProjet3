@@ -54,15 +54,14 @@
         </div>
     </nav>
 
-    <div id="spanliste" style="border:2px solid black"></div>
+    
 
     <h1> Liste des voyages </h1>
-    <div class="form-group">
-        <label for="voyages"> Liste des voyages </label>
-        <select class="form-control" id="Voyages"></select>
+    <div class="form-group" style="border:2px solid black">
+        
     </div>
 
-    <div id="spanliste" style="border:2px solid black"></div>
+    
     <h1> Ajouter un voyage </h1>
     <form novalidate style="margin: 50px;">
         <div class="form-group">
@@ -156,7 +155,7 @@
             //dataType:'json',
             success: function (data) { // on affiche le retour.
                 for (var element of data) {
-                    $('#spanliste').append(element.Id + " // " + element.DestinationId + ' // ' + moment(element.DateAller).format('DD/MM/YYYY') + ' // ' + moment(element.DateRetour).format('DD/MM/YYYY') + ' // ' + element.PrixParPersonne + '€' + ' // ' + element.PlacesDisponibles + '<br>');
+                    $('div').append(element.Id + " // " + element.DestinationId + ' // ' + moment(element.DateAller).format('DD/MM/YYYY') + ' // ' + moment(element.DateRetour).format('DD/MM/YYYY') + ' // ' + element.PrixParPersonne + '€' + ' // ' + element.PlacesDisponibles + '<br>');
 
                 }
                 console.log(data)
