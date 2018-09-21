@@ -80,7 +80,7 @@
     </nav>
     
     <h1>Liste des agences</h1>
-    <span style="border:2px solid black"></span>
+    <div style="border:2px solid black"></div>
     <h1>Ajouter une agence</h1>
     <form novalidate>
         <div class="form-group">
@@ -129,7 +129,7 @@
             success: function (data) { // on affiche le retour.
                 for (var element of data) {
 
-                    $('span').append(element.Id + " " + element.Nom + '<br>');
+                    $('div').append(element.Id + " " + element.Nom + '<br>');
                 }
                 console.log(data)
             },
