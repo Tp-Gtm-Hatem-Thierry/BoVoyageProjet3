@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+<!--Menu destination -->
 <html lang="en">
 
 <head>
@@ -16,7 +17,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!--<link rel="stylesheet" href="/Application/css/application.style.css" />-->
+    <link rel="stylesheet" href="/Application/css/style.css" />
     <style>
        
         body {
@@ -41,10 +42,9 @@
 </head>
 
 
-<!--Menu destination ?-->
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="/"><i class="fas fa-check-double"></i> BoVoyage</a>
+        <a class="navbar-brand" href="/"><i class="fas fa-check-double"></i> BoVoyage </a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
 
@@ -52,7 +52,7 @@
                     <a class="nav-link " href="AgencesVoyages.html" disabled> Agences </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Application/html/Voyages.html">Voyages</a>
+                    <a class="nav-link" href="/Application/html/Voyages.html"> Voyages </a>
                 </li>
 
                 <li class="nav-item active">
@@ -74,32 +74,37 @@
             </ul>
         </div>
     </nav>
-    <h1>Liste des destinations :</h1>
-    <div style="border:2px solid black"></div>
+
+    <div id="spanliste" style="border:2px solid black"></div>
+
+    <h1> Liste des destinations </h1>
+    <div class="form-group">
+        <label for="destinations"> Liste des destinations </label>
+        <select class="form-control" id="Destinations"></select>
     <br />
-    <!--Creer un formulaire pour enregistrer une nouvelle dfsestination-->
-    <!--Creer un formulaire pour enregistrer une nouvelle destination-->
+    </div>
     <!--Ajout-->
-    <h1>Ajouter une destination :</h1>
+
+    <h1> Ajouter une destination : </h1>
     <form novalidate>
         <div class="form-group">
-            <label for="Continent">Continent</label>
+            <label for="Continent"> Continent </label>
             <input type="text" class="form-control" id="Continent" required />
 
         </div>
 
         <div class="form-group">
-            <label for="Pays">Pays</label>
+            <label for="Pays"> Pays </label>
             <input type="text" class="form-control" id="Pays" required />
         </div>
 
         <div class="form-group">
-            <label for="Region">Region</label>
+            <label for="Region"> Region </label>
             <input type="text" class="form-control" id="Region" required />
         </div>
 
         <div class="form-group">
-            <label for="Description">Description</label>
+            <label for="Description"> Description </label>
             <input type="text" class="form-control" id="Description" required />
         </div>
 
@@ -109,21 +114,16 @@
     </form>
 
     <!--Supprimer-->
-    <h1>Supprimer une destination :</h1>
-    <label for="Id">Id de la destination à supprimer :</label>
+    <h1> Supprimer une destination : </h1>
+    <label for="Id"> Id de la destination à supprimer : </label>
 
     <form name="form1" id="form1">
         <input type="text" name="name" id="choix" />
 
         <input type="button" id="Save" value="Supprimer" />
     </form>
-    <!--Creer un formulaire pour enregistrer une nouvelle destination-->
-    <!--Creer un formulaire pour enregistrer une nouvelle destination-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script>
-        //fetch('/api/destinations')
-        //    .then(response => response.json())
-        //    .then(json => console.log(json))
         $(document).ready(function () {
 
         $.ajax({
@@ -167,13 +167,9 @@
         $(document).ready(function () {
             $('#Save').click(function () {
                 var choix = $('#choix').val();
-                //var sup = new Object();
-                //sup.id = $('#choix').val();
                 $.ajax({
                     type: 'DELETE',
                     url: '/api/Destinations/' + choix,
-                    //datatype: 'json',
-                    //data: { 'id': choix },
                     success: function (data) {
                         alert('Destination supprimée');
                         console.log(data);
@@ -184,22 +180,8 @@
                 });
             })
 
-            
+
         })
-                            //function LoadCategories() {
-                            //    $.ajax({
-                            //        url: '/api/destinations',
-                            //        success: function (categories) {
-                            //            var divListeCategories = $('#listeCategories');
-                            //            divListeCategories.empty();
-                            //            for (var categorie of categories) {
-                            //                var divCategorie = $('<div class="Categorie"></div>');
-                            //                RemplirDivCategorie(divCategorie, categorie);
-                            //                divListeCategories.append(divCategorie);
-                            //            }
-                            //        }
-                            //    });
-                            //}
     </script>
 </body>
 </html>

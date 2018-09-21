@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+<!--Agences de Voyage-->
 <html lang="en">
 
 <head>
@@ -17,7 +18,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!--<link rel="stylesheet" href="/Application/css/application.style.css" />-->
     <style>
 
        
@@ -46,17 +46,16 @@
 </head>
 
 
-<!--Menu destination ?-->
 <body>
-    <nav id="nav"class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="/"><i class="fas fa-check-double"></i> BoVoyage</a>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="/"><i class="fas fa-check-double"></i> BoVoyage </a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link active" href="AgencesVoyages.html" disabled> Agences <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Application/html/Voyages.html">Voyages</a>
+                    <a class="nav-link" href="/Application/html/Voyages.html"> Voyages </a>
                 </li>
 
                 <li class="nav-item">
@@ -74,17 +73,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="Participants.html"> Participants </a>
                 </li>
-                
+
             </ul>
         </div>
     </nav>
-    
-    <h1>Liste des agences</h1>
+
+    <div id="spanliste" style="border:2px solid black"></div>
+    <h1> Liste des agences </h1>
+    <div class="form-group">
+        <label for="agences"> Liste des agences </label>
+        <select class="form-control" id="Agences"></select>
+    </div>
+
     <div style="border:2px solid black"></div>
-    <h1>Ajouter une agence</h1>
+    <h1> Ajouter une agence </h1>
     <form novalidate>
         <div class="form-group">
-            <label>Nom de l'agence :</label>
+            <label> Nom de l'agence :</label>
             <input type="text" class="form-control" id="Nom" required />
 
         </div>
@@ -93,9 +98,9 @@
     </form>
     <h1>Supprimer une agence</h1>
     <form name="form1" id="form1">
-        
+
         <div class="form-group">
-            <label for="Agence">Agence</label>
+            <label for="Agence"> Agence </label>
             <select class="form-control" id="Agence"></select>
         </div>
         <input type="button" id="Save" value="Supprimer" />
@@ -120,24 +125,24 @@
         }
         $(document).ready(function () {
 
-        $.ajax({
-            type: 'GET',
-            url: '/api/agencevoyages',
-            //data: data,
-            //dataType:'json',
+            $.ajax({
+                type: 'GET',
+                url: '/api/agencevoyages',
+                //data: data,
+                //dataType:'json',
 
-            success: function (data) { // on affiche le retour.
-                for (var element of data) {
+                success: function (data) { // on affiche le retour.
+                    for (var element of data) {
 
-                    $('div').append(element.Id + " " + element.Nom + '<br>');
+                        $('div').append(element.Id + " " + element.Nom + '<br>');
+                    }
+                    console.log(data)
+                },
+
+                error: function () {
+                    alert('Impossible de charger la liste');
                 }
-                console.log(data)
-            },
-
-            error: function () {
-                alert('Impossible de charger la liste');
-            }
-        });
+            });
 
         })
         function Enregistrer() {
