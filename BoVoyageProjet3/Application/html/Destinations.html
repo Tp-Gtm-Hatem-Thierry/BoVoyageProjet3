@@ -18,6 +18,11 @@
 
     <!--<link rel="stylesheet" href="/Application/css/application.style.css" />-->
     <style>
+       
+        body {
+            margin-bottom: 100px;
+        }
+   
         .Categorie {
             border: solid 1px lightgray;
             padding: 10px;
@@ -70,9 +75,9 @@
         </div>
     </nav>
     <h1>Liste des destinations :</h1>
-    <span></span>
+    <div style="border:2px solid black"></div>
     <br />
-    <!--Creer un formulaire pour enregistrer une nouvelle destination-->
+    <!--Creer un formulaire pour enregistrer une nouvelle dfsestination-->
     <!--Creer un formulaire pour enregistrer une nouvelle destination-->
     <!--Ajout-->
     <h1>Ajouter une destination :</h1>
@@ -129,7 +134,7 @@
             success: function (data) { // on affiche le retour.
                 for (var element of data) {
                     //span peut etre remplacer par une class, en fait ici on recupere l'info'
-                    $('span').append(element.Id + " " + element.Pays + " " + element.Description + '<br>');
+                    $('div').append(element.Id + " " + element.Pays + " " + element.Description + '<br>');
                 }
             },
             error: function () {

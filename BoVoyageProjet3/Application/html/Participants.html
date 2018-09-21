@@ -15,6 +15,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!--<link rel="stylesheet" href="/Application/css/application.style.css" />-->
+    <style>
+        body {
+            margin-bottom: 100px;
+        }
+    </style>
 </head>
 
 <!--Accueil du site-->
@@ -38,8 +43,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="Assurances.html"> Assurances </a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link active" href="Clients.html"> Clients </a>
+                <li class="nav-item ">
+                    <a class="nav-link " href="Clients.html"> Clients </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="DossierReservations.html"> Reservations </a>
@@ -51,6 +56,71 @@
             </ul>
         </div>
     </nav>
+
+    <h1>Liste des Participants :</h1>
+    <span id="liste"></span>
+    <br />
+    <!--Creer un formulaire pour enregistrer une nouvelle destination-->
+    <!--Creer un formulaire pour enregistrer une nouvelle destination-->
+    <!--Ajout-->
+    <h1>Ajouter un client :</h1>
+    <form novalidate>
+        <!--<div class="form-group">
+            <label for="Civilite">Civilité</label>
+            <input type="text" class="form-control" id="Civilite" required />
+        </div>-->
+        <div>
+            <label>Civilité</label> <br />
+            <input type="radio" name="Civilite" value="M" checked> M<br>
+            <input type="radio" name="Civilite" value="Mme"> Mme<br>
+            <input type="radio" name="Civilite" value="Autre"> Autre <br>
+
+        </div>
+
+        <div class="form-group">
+            <label for="Nom">Nom</label>
+            <input type="text" class="form-control" id="Nom" required />
+
+        </div>
+
+        <div class="form-group">
+            <label for="Prenom">Prenom</label>
+            <input type="text" class="form-control" id="Prenom" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Adresse">Adresse</label>
+            <input type="text" class="form-control" id="Adresse" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="text" class="form-control" id="Email" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Telephone">Telephone</label>
+            <input type="text" class="form-control" id="Telephone" required />
+        </div>
+
+        <div class="form-group">
+            <label for="DateNaissance">DateNaissance</label>
+            <input type="date" class="form-control" id="DateNaissance" required />
+        </div>
+
+        <input type="submit" value="Enregistrer" onclick="return Enregistrer();">
+
+    </form>
+
+    <!--Supprimer-->
+    <h1>Supprimer un client :</h1>
+    <label for="Id">Id du client à supprimer :</label>
+
+    <form name="form1" id="form1">
+        <input type="text" name="name" id="choix" />
+
+        <input type="button" id="Save" value="Supprimer" />
+    </form>
 
 
 </body>
