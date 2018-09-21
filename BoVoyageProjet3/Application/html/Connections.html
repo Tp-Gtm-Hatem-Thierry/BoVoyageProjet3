@@ -143,6 +143,11 @@
                 width: 100%;
             }
         }
+        #p {
+            margin-top: 50px;
+            
+            
+        }
     </style>
 </head>
 <body>
@@ -154,9 +159,9 @@
         </div>
     </nav>
 
-    
-
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+    <br />
+    <h2>Bienvenue, veuillez vous authentifier</h2>
+    <button id="p" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
     <div id="id01" class="modal">
 
@@ -188,7 +193,7 @@
       
         // Get the modal
         function redirection() {
-            window.location.href = '/application/html/AgencesVoyages.html';
+            window.location.href = '/application/html/Acceuil.html';
         }
         var modal = document.getElementById('id01');
 

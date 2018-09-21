@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Application\css\style.css" />
+    <Content Include="Application\html\Acceuil.html" />
     <Content Include="Application\html\AgencesVoyages.html" />
     <Content Include="Application\html\Assurances.html" />
     <Content Include="Application\html\Clients.html" />
