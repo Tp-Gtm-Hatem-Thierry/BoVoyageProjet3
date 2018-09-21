@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoVoyageProjet3.Models
 {
-    //Model et attributs de la table Voyage pour la base de donnée
+    /// Model et attributs de la table Voyage pour la base de données
     public class Voyage
     {
         public int Id { get; set; }
@@ -26,9 +26,6 @@ namespace BoVoyageProjet3.Models
 
         [Required]
         public int DestinationId { get; set; }
-
-        
-     
 
         [Required]
         public int AgenceVoyageId { get; set; }

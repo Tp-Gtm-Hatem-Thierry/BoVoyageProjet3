@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoVoyageProjet3.Models
 {
-    //Model et attributs de la table Destination pour la base de donnée
+    /// Model et attributs de la table Destination pour la base de données
     public class Destination
     {
         public int Id { get; set; }
@@ -16,10 +16,10 @@ namespace BoVoyageProjet3.Models
         public string Continent { get; set; }
 
         [Required]
-        [StringLength(60)] //¤ taille raisonnable pour le nom d'un pays je pense
+        [StringLength(60)]
         public string Pays { get; set; }
 
-        [Required] //^^ Ajout de region suivant le diagramme de class
+        [Required]
         [StringLength(60)]
         public string Region { get; set; }
 

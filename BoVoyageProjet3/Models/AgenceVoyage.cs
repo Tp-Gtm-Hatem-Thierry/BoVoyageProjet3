@@ -8,7 +8,7 @@ using System.Web;
 
 namespace BoVoyageProjet3.Models
 {
-    //Model et attributs de la table AgenceVoyage pour la base de donnée
+    /// Model et attributs de la table AgenceVoyage pour la base de données
     public class AgenceVoyage
     {
         public int Id { get; set; }
@@ -16,8 +16,6 @@ namespace BoVoyageProjet3.Models
         [Required]
         [StringLength(100)]
         public string Nom { get; set; }
-
-        
 
         public ICollection<Voyage> Voyages { get; set; }
 
