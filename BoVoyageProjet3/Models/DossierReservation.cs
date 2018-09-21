@@ -52,6 +52,7 @@ namespace BoVoyageProjet3.Models
 
         public int ClientId { get; set; }
 
+        //[ForeignKey("ParticipantId")]
         public int ParticipantId { get; set; }
 
 
@@ -61,9 +62,9 @@ namespace BoVoyageProjet3.Models
         [ForeignKey("ClientId")]
         public Client Client { get; set; }
 
-        //Liste des participants et assurances (pour futur offres)
-        [ForeignKey ("ParticipantId")] //^^ en attente validation apres test
-        public List<Participant> Participants { get; set; }
+        //[ForeignKey("ParticipantId")]
+        //Liste des participants et assurances (pour offres futur)
+        public IList<Participant> Participants { get; set; } //^^
         public List<Assurance> Assurances { get; set; }
 
     }

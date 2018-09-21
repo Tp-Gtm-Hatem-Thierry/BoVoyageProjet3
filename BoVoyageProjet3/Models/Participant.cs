@@ -10,6 +10,12 @@ namespace BoVoyageProjet3.Models
     //Model et attributs de la table Participant pour la base de donnée
     public class Participant : Personne
     {
+
+        public Participant(DossierReservation dossierReservation)
+        {
+            DossierReservation = dossierReservation;
+        }
+
         public int NumeroUnique { get; set; }
 
         public double Reduction
@@ -25,8 +31,8 @@ namespace BoVoyageProjet3.Models
         //¤Voir si Reduction et NomComplet peuvent etre basculer en bas vis a vis de la BD
         public int DossierReservationId { get; set; }
 
-        [ForeignKey("DossierReservationId")]
-        public virtual DossierReservation DossierReservation { get; set; } //^^ Je pense que l'on peux enlever virtual tout simplement
+        //[ForeignKey("DossierReservationId")]
+        public DossierReservation DossierReservation { get; set; } //^^ voir comment remplacer le virtual - il faut faire un return ensuite suivant instruction de Yannick,a voir comment faire
 
         public string NomComplet
         {
