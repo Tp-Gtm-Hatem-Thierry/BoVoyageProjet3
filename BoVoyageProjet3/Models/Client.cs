@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 namespace BoVoyageProjet3.Models
 {
-    //Model de table Personne pour la base de donnée
+    //Model et attributs de la table Client pour la base de donnée
     public class Client : Personne
     {
 

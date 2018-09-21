@@ -8,18 +8,18 @@ using System.Web;
 
 namespace BoVoyageProjet3.Models
 {
+    //Model et attributs de la table AgenceVoyage pour la base de donnée
     public class AgenceVoyage
     {
-
         public int Id { get; set; }
 
         [Required]
         [StringLength(100)]
         public string Nom { get; set; }
 
-        public int VoyageID { get; set; }
+        //^^[ForeignKey("VoyageId")] //a tester
+        public int VoyageId { get; set; }//^^ regle de nommage VoyageID>VoyageId
 
-        //[ForeignKey("VoyageId")] //a tester
         public ICollection<Voyage> Voyages { get; set; }
 
     }
