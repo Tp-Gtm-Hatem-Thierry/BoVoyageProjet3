@@ -1,21 +1,23 @@
-﻿using BoVoyageProjet3.Data;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity.Migrations;
-using System.Linq;
-using System.Web;
-
-namespace BoVoyageProjet3
+namespace BoVoyageProjet3.Migrations
 {
-    public class Configuration : DbMigrationsConfiguration<BoVoyageDbContext>
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<BoVoyageProjet3.Data.BoVoyageDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
+
+        protected override void Seed(BoVoyageProjet3.Data.BoVoyageDbContext context)
+        {
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data.
+        }
     }
 }
-/* Affichage>Autre fentre> add-migration "le nom de la migration" va creer une classe :
-
-  add-migration >> Init << nom de la migration que l'on a donné
-  update-database << creation de la base de donnee*/

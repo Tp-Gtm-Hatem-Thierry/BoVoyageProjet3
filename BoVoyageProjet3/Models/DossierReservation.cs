@@ -19,10 +19,10 @@ namespace BoVoyageProjet3.Models
         public string NumeroCarteBancaire { get; set; }
 
         //^^prix par perszonne a calculer
-        [Required]//^^
+        [Required]
         public decimal PrixParPersonne { get; set; }
 
-        [Required]//^^
+        [Required]
         public decimal PrixTotal { get; set; }
 
         //{
@@ -46,14 +46,15 @@ namespace BoVoyageProjet3.Models
         //}
         public EtatDossierReservation EtatDossierReservation { get; set; }
 
-        public RaisonAnnulationDossier RaisonAnnulationDossier { get; set; }//^^ pour rester coerent avec la l.74
-        //public byte RaisonAnnulationDossier { get; set; }//^^ commentaire du dessus
+        public RaisonAnnulationDossier RaisonAnnulationDossier { get; set; }
 
         public int VoyageId { get; set; }
 
         public int ClientId { get; set; }
 
-        public int ParticipantId { get; set; } //¤ FK ou pas ? car Id
+        //[ForeignKey("ParticipantId")]
+        public int ParticipantId { get; set; }
+
 
         [ForeignKey("VoyageId")]
         public Voyage Voyage { get; set; }
@@ -61,15 +62,13 @@ namespace BoVoyageProjet3.Models
         [ForeignKey("ClientId")]
         public Client Client { get; set; }
 
-        //^^public Assurance Assurances { get; set; } //^^suppression collection
-
-        //^^[ForeignKey("ParticipantId")]
-
-        public List<Participant> Participants { get; set; } //suppression collection
-        public List<Assurance> Assurances { get; set; } //suppression collection
+        //[ForeignKey("ParticipantId")]
+        //Liste des participants et assurances (pour offres futur)
+        public IList<Participant> Participants { get; set; } //^^
+        public List<Assurance> Assurances { get; set; }
 
     }
 
     public enum EtatDossierReservation { EnAttente, EnCours, Refuse, Accepte, Clos, Annule }
-    public enum RaisonAnnulationDossier { Client = 1, PlacesInsuffisantes = 2, SoldeInsuffisant = 3 }//^^ Selon diag de class, cette classe fait un <<use>>, donc une interface normalement non ?
+    public enum RaisonAnnulationDossier { Client = 1, PlacesInsuffisantes = 2, SoldeInsuffisant = 3 }
 }

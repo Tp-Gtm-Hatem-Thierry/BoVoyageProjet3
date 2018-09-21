@@ -16,11 +16,11 @@ namespace BoVoyageProjet3.Models
         public string Civilite { get; set; }
 
         [Required]
-        [StringLength(30)]//¤ taille raisonnable
+        [StringLength(30)]
         public string Nom { get; set; }
 
         [Required]
-        [StringLength(20)]//¤ taille raisonnable
+        [StringLength(20)]
         public string Prenom { get; set; }
 
         [Required]

@@ -114,13 +114,17 @@
     <Compile Include="Migrations\201809202243487_Init.Designer.cs">
       <DependentUpon>201809202243487_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Controllers\AssurancesController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Data\BoVoyageDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809210846492_Init.cs" />
+    <Compile Include="Migrations\201809210846492_Init.Designer.cs">
+      <DependentUpon>201809210846492_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgenceVoyage.cs" />
     <Compile Include="Controllers\AgenceVoyagesController.cs" />
     <Compile Include="Models\Assurance.cs" />
@@ -133,7 +137,6 @@
     <Compile Include="Controllers\ParticipantsController.cs" />
     <Compile Include="Models\Personne.cs" />
     <Compile Include="Controllers\VoyagesController.cs" />
-    <Compile Include="Controllers\PersonnesController.cs" />
     <Compile Include="Models\_RaisonAnnulationDossier.cs" />
     <Compile Include="Models\Voyage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,6 +156,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201809202243487_Init.resx">
       <DependentUpon>201809202243487_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809210846492_Init.resx">
+      <DependentUpon>201809210846492_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
