@@ -46,6 +46,7 @@ namespace BoVoyageProjet3.Models
         //}
         public EtatDossierReservation EtatDossierReservation { get; set; }
 
+
         public RaisonAnnulationDossier RaisonAnnulationDossier { get; set; }//^^ pour rester coerent avec la l.74
         //public byte RaisonAnnulationDossier { get; set; }//^^ commentaire du dessus
 

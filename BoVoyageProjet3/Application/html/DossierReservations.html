@@ -41,7 +41,7 @@
                 <li class="nav-item ">
                     <a class="nav-link " href="Clients.html"> Clients </a>
                 </li>
-                <li class="nav-item active" >
+                <li class="nav-item active">
                     <a class="nav-link active" href="DossierReservations.html"> Reservations <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
@@ -52,6 +52,150 @@
         </div>
     </nav>
 
+
+    <h1>Liste des Dossiers :</h1>
+    <span id="liste"></span>
+    <br />
+
+
+    <h1>Ajouter un dossier :</h1>
+    <form novalidate>
+        <!--<div class="form-group">
+        <label for="Civilite">Civilité</label>
+        <input type="text" class="form-control" id="Civilite" required />
+    </div>-->
+        
+
+        <div class="form-group">
+            <label for="NumeroUnique">Numero unique</label>
+            <input type="text" class="form-control" id="NumeroUnique" required />
+
+        </div>
+
+        <div class="form-group">
+            <label for="VoyageId">Voyage</label>
+            <input type="text" class="form-control" id="VoyageId" required />
+        </div>
+
+        <div class="form-group">
+            <label for="ClientId">Client</label>
+            <input type="text" class="form-control" id="ClientId" required />
+        </div>
+
+        <div class="form-group">
+            <label for="ParticipantId">Participants</label>
+            <input type="text" class="form-control" id="ParticipantId" required />
+        </div>
+
+        <div class="form-group">
+            <label for="NumeroCarteBancaire">Numero de carte bancaire</label>
+            <input type="text" class="form-control" id="NumeroCarteBancaire" required />
+        </div>
+
+        <div class="form-group">
+            <label for="PrixParPersonne">Prix par personne</label>
+            <input type="text" class="form-control" id="PrixParPersonne" required />
+        </div>
+
+        <div class="form-group">
+            <label for="PrixTotal">Prix total</label>
+            <input type="text" class="form-control" id="PrixTotal" required />
+        </div>
+
+        <div class="form-group">
+            <label for="EtatDossierReservation">Etat du dossier</label>
+            <input type="text" class="form-control" id="EtatDossierReservation" required />
+        </div>
+
+        <div class="form-group">
+            <label for="RaisonAnnulationDossier">Raison de l'annulation du dossier</label>
+            <input type="date" class="form-control" id="RaisonAnnulationDossier" required />
+        </div>
+
+        <input type="submit" value="Enregistrer" onclick="return Enregistrer();">
+
+    </form>
+
+    <!--Supprimer-->
+    <h1>Supprimer un dossier :</h1>
+    <label for="Id">Id du dossier à supprimer :</label>
+
+    <form name="form1" id="form1">
+        <input type="text" name="name" id="choix" />
+
+        <input type="button" id="Save" value="Supprimer" />
+    </form>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            $.ajax({
+                type: 'GET',
+                url: '/api/clients',
+                //data: data,
+                //dataType:'json',
+                success: function (data) { // on affiche le retour.
+                    for (var element of data) {
+                        //span peut etre remplacer par une class, en fait ici on recupere l'info'
+                        $('#liste').append(element.Id + ' ' + element.Civilite + ' ' + element.Nom + " " + element.Prenom + " " + element.Adresse + ' ' + element.Email + ' ' + element.Telephone + ' ' + element.DateNaissance + '<br>');
+                    }
+                },
+                error: function () {
+                    alert('Ca Marche pas !');
+                }
+            });
+        })
+
+        function Enregistrer() {
+            let client = {
+                Civilite: $('radio').val(),
+                Nom: $('#Nom').val(),
+                Prenom: $('#Prenom').val(),
+                Adresse: $('#Adresse').val(),
+                Email: $('#Email').val(),
+                Telephone: $('#Telephone').val(),
+                DateNaissance: $('#DateNaissance').val()
+
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/api/clients',
+                data: client,
+                success: function () {
+                    alert('Client ajouté');
+                },
+                error: function () {
+                    alert('Echec de l\'ajout d\'un client');
+
+                }
+            });
+            return false;
+        }
+        //--------------------------------------
+        $(document).ready(function () {
+            $('#Save').click(function () {
+                var choix = $('#choix').val();
+
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/api/clients/' + choix,
+                    success: function (data) {
+                        alert('Client supprimé');
+                        console.log(data);
+                    },
+                    error: function () {
+                        alert('Impossible de supprimer.');
+                    }
+                });
+            })
+
+
+        })
+    </script>
 
 </body>
 </html>

@@ -15,9 +15,9 @@ namespace BoVoyageProjet3.Models
         [Required]
         public decimal Montant { get; set; }
 
-        public int DossierReservationId { get; set; }
+        //public int DossierReservationId { get; set; }
 
-        [ForeignKey("DossierReservationId")]
+        //[ForeignKey("DossierReservationId")]
         public List<DossierReservation> DossierReservations { get; set; } //^^suppression collection
 
         public TypeAssurance TypeAssurance { get; set; }

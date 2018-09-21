@@ -28,8 +28,8 @@ namespace BoVoyageProjet3.Models
         //¤Voir si Reduction et NomComplet peuvent etre basculer en bas vis a vis de la BD
         public int DossierReservationId { get; set; }
 
-        [ForeignKey("DossierReservationId")]
-        public virtual DossierReservation DossierReservation { get; set; } //^^ Je pense que l'on peux enlever virtual tout simplement
+        //[ForeignKey("DossierReservationId")]
+        public  DossierReservation DossierReservation { get; set; } //^^ Je pense que l'on peux enlever virtual tout simplement
 
         public string NomComplet
         {

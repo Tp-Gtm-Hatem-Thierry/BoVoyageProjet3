@@ -52,7 +52,6 @@ namespace BoVoyageProjet3.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Montant = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        DossierReservationId = c.Int(nullable: false),
                         TypeAssurance = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
