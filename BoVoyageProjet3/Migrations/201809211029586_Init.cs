@@ -13,7 +13,6 @@ namespace BoVoyageProjet3.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Nom = c.String(nullable: false, maxLength: 100),
-                        VoyageID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -27,6 +26,7 @@ namespace BoVoyageProjet3.Migrations
                         PlacesDisponibles = c.Int(nullable: false),
                         PrixParPersonne = c.Decimal(nullable: false, precision: 18, scale: 2),
                         DestinationId = c.Int(nullable: false),
+                        Places = c.Int(nullable: false),
                         AgenceVoyageId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
@@ -41,8 +41,9 @@ namespace BoVoyageProjet3.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Continent = c.String(nullable: false),
-                        Pays = c.String(nullable: false, maxLength: 100),
-                        Description = c.String(maxLength: 250),
+                        Pays = c.String(nullable: false, maxLength: 60),
+                        Region = c.String(nullable: false, maxLength: 60),
+                        Description = c.String(nullable: false, maxLength: 250),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -85,10 +86,10 @@ namespace BoVoyageProjet3.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Email = c.String(maxLength: 50),
                         Civilite = c.String(maxLength: 12),
-                        Nom = c.String(nullable: false, maxLength: 50),
-                        Prenom = c.String(nullable: false, maxLength: 50),
+                        Nom = c.String(nullable: false, maxLength: 30),
+                        Prenom = c.String(nullable: false, maxLength: 20),
                         Adresse = c.String(nullable: false, maxLength: 150),
-                        Telephone = c.String(nullable: false, maxLength: 12),
+                        Telephone = c.String(nullable: false, maxLength: 15),
                         DateNaissance = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
@@ -101,10 +102,10 @@ namespace BoVoyageProjet3.Migrations
                         NumeroUnique = c.Int(nullable: false),
                         DossierReservationId = c.Int(nullable: false),
                         Civilite = c.String(maxLength: 12),
-                        Nom = c.String(nullable: false, maxLength: 50),
-                        Prenom = c.String(nullable: false, maxLength: 50),
+                        Nom = c.String(nullable: false, maxLength: 30),
+                        Prenom = c.String(nullable: false, maxLength: 20),
                         Adresse = c.String(nullable: false, maxLength: 150),
-                        Telephone = c.String(nullable: false, maxLength: 12),
+                        Telephone = c.String(nullable: false, maxLength: 15),
                         DateNaissance = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)

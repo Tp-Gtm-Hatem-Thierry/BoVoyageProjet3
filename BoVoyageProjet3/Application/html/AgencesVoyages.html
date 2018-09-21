@@ -12,7 +12,7 @@
           crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="/Application/css/application.css" />
+   
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -46,6 +46,9 @@
                 <li class="nav-item active">
                     <a class="nav-item active" href="AgencesVoyages.html" disabled> Agences <span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Application/html/Voyages.html">Voyages</a>
+                </li>
             </ul>
             <li class="nav-item">
                 <a class="nav-link" href="Destinations.html"> Destinations </a>
@@ -65,36 +68,33 @@
 -
         </div>
     </nav>
-    <h1>TEST</h1>
+    
     <h1>Liste des agences</h1>
     <span></span>
     <h1>Ajouter une agence</h1>
     <form novalidate>
         <div class="form-group">
-            <label for="Continent">Continent</label>
-            <input type="text" class="form-control" id="Continent" required />
+            <label>Nom de l'agence :</label>
+            <input type="text" class="form-control" id="Nom" required />
 
         </div>
-
-        <div class="form-group">
-            <label for="Pays">Pays</label>
-            <input type="text" class="form-control" id="Pays" required />
-        </div>
-
-        <div class="form-group">
-            <label for="Description">Description</label>
-            <input type="text" class="form-control" id="Description" required />
-        </div>
-
         <input type="submit" value="Enregistrer" onclick="return Enregistrer();">
 
     </form>
     <h1>Supprimer une agence</h1>
+    <!--Supprimer-->
+    <label for="Id">Id de l'agence à supprimer :</label>
+
+    <form name="form1" id="form1">
+        <input type="text" name="name" id="choix" />
+
+        <input type="button" id="Save" value="Save Data" />
+    </form>
 
     <script>
         $.ajax({
             type: 'GET',
-            url: '/api/agencevoyages/',
+            url: '/api/agencevoyages',
             //data: data,
             //dataType:'json',
 
@@ -103,13 +103,56 @@
 
                     $('span').append(element.Id + " " + element.Nom + '<br>');
                 }
+                console.log(data)
             },
 
             error: function () {
-                alert('Ca Marche pas !');
+                alert('Impossible de charger la liste');
             }
         });
 
+        function Enregistrer() {
+
+            let agence = {
+                Nom: $('#Nom').val(),
+
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/api/agencevoyages',
+                data: agence,
+                success: function () {
+                    alert('Agence ajoutée !')
+                },
+                error: function () {
+                    alert('Aïe aïe aïe carambla !!');
+                }
+            });
+            return false;
+        }
+
+        $(document).ready(function () {
+
+            $('#Save').click(function () {
+
+                var choix = $('#choix').val();
+                //var sup = new Object();
+                //sup.id = $('#choix').val();
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/api/AgenceVoyages/' + choix,
+                    //datatype: 'json',
+                    //data: { 'id': choix },
+                    success: function (data) {
+                        alert('Agence supprimée');
+                        console.log(data);
+                    },
+                    error: function () {
+                        alert('Impossible de supprimer.');
+                    }
+                });
+            })
+        })
 
     </script>
 </body>

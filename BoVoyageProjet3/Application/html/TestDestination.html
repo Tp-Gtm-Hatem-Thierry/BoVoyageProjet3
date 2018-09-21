@@ -1,0 +1,180 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="/Application/css/application.css" />
+    <style>
+        .Categorie {
+            border: solid 1px lightgray;
+            padding: 10px;
+        }
+
+            .Categorie button {
+                float: right;
+                margin-right: 5px;
+                display: none;
+            }
+
+            .Categorie:hover button {
+                display: block;
+            }
+    </style>
+</head>
+
+
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="/"><i class="fas fa-check-double"></i> BoVoyage</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Taches</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" disabled>Destinations <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div id="listeDestinations">
+
+        </div>
+
+        <div class="alert alert-secondary" style="margin-top: 15px">
+            <input type="text" id="Nom" placeholder="Nouvelle catégorie" />
+            <button class="btn btn-primary" onclick="Ajouter()">
+                Ajouter
+            </button>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script>
+        function LoadDestinations() {
+            $.ajax({
+                url: '/api/destinations',
+                success: function (destinations) {
+                    var divListeDestination = $('#listeDestinations');
+                    divListeDestination.empty();
+                    for (var destination of destinations) {
+                        var divDestination = $('<div class="Destination"></div>');
+                        RemplirDivDestination(divDestination, destination); //qsd
+                        divListeDestination.append(divDestination);
+                    }
+                }
+            });
+        }
+        function RemplirDivDestination(divDestination, destination) {
+            divDestination.empty();
+            divDestination.data('id', destination.ID);
+            divDestination.append($('<span></span>').text(destination.Id+'-'+destination.Continent + '-' + destination.Pays+'-'+destination.Region +'-'+destination.Description));
+            divDestination.append($('<span></span>').text(destination.Pays));
+            var boutonSupprimer = $('<button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>');
+            boutonSupprimer.on('click', function () {
+                var idDestination = $(this).closest('.Destination').data('id');
+                Supprimer(idDestination);
+            });
+            divDestination.append(boutonSupprimer);
+            var boutonModifier = $('<button class="btn btn-primary btn-sm"><i class="fas fa-pen"></i></button>');
+            boutonModifier.on('click', function () {
+                Modifier($(this));
+            });
+            divDestination.append(boutonModifier);
+        }
+        //function Modifier(bouton) {
+        //    var div = bouton.closest('.Destination');
+        //    var span = div.find('span');
+        //    var nom = span.text();
+        //    div.data('nom', nom); // je stocke le nom dans le div en cas d'annulation
+        //    div.empty();
+        //    var input = $('<input type="text"/>').val(span.text());
+        //    div.append(input);
+        //    input.focus();
+        //    input.select();
+        //    input.on('keyup', function (event) {
+        //        var divDestination = $(this).closest('.Categorie');
+        //        switch (event.which) {
+        //            case 13:/*ENTER*/
+        //                EnregistrerModification(divDestination);
+        //                break;
+        //            case 27:/*ESCAPE*/
+        //                AnnulerModification(divDestination);
+        //                break;
+        //        }
+        //    });
+        //    var boutonAnnuler = $('<button class="btn btn-secondary btn-sm">Annuler</button>');
+        //    boutonAnnuler.on('click', function () {
+        //        let divDestination = $(this).closest('.Categorie');
+        //        AnnulerModification(divDestination);
+        //    });
+        //    div.append(boutonAnnuler);
+        //    var boutonEnregistrer = $('<button class="btn btn-primary btn-sm">Enregistrer</button>');
+        //    boutonEnregistrer.on('click', function () {
+        //        EnregistrerModification($(this).closest('.Categorie'));
+        //    });
+        //    div.append(boutonEnregistrer);
+        //}
+        //function Ajouter() {
+        //    $.ajax({
+        //        type: 'POST',
+        //        url: '/api/destinations',
+        //        data: {
+        //            Nom: $('#Nom').val()
+        //        },
+        //        success: function () {
+        //            LoadDestinations();
+        //            $('#Nom').val('');
+        //        }
+        //    });
+        //}
+        //function Supprimer(idDestination) {
+        //    $.ajax({
+        //        type: 'DELETE',
+        //        url: '/api/destinations' + idDestination,
+        //        success: function () {
+        //            LoadDestinations();
+        //        },
+        //        error: function () {
+        //            alert('Impossible de supprimer. Peut-être la catégorie est liée à une tache?');
+        //        }
+        //    });
+        //}
+        //function AnnulerModification(divDestination) {
+        //    let idDestination = divDestination.data('id');
+        //    let nomCategorie = divDestination.data('nom'); // nom que j'avais stocké plus haut
+        //    RemplirDivDestination(divDestination, { ID: idDestination, Nom: nomCategorie });
+        //}
+        //function EnregistrerModification(divDestination) {
+        //    let idDestination = divDestination.data('id');
+        //    let nomCategorie = divDestination.find('input').val();
+        //    $.ajax({
+        //        type: 'PUT',
+        //        url: '/api/destinations' + idDestination,
+        //        data: {
+        //            ID: idDestination,
+        //            nom: nomCategorie
+        //        },
+        //        success: function () {
+        //            RemplirDivDestination(divDestination, { ID: idDestination, Nom: nomCategorie });
+        //        }
+        //    });
+        //}
+        $(document).ready(function () {
+            LoadDestinations();
+            $('#Nom').focus();
+        });
+    </script>
+</body>
+
+</html>
