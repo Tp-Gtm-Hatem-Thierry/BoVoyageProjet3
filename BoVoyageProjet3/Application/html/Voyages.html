@@ -13,7 +13,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!--<link rel="stylesheet" href="/Application/css/application.style.css" />-->
+    <style>
+        body{
+            margin-bottom:100px;
+        }
+    </style>
 </head>
+
 <body>
     <!--Pensez à basculer le style dans le fichier css-->
     <!--Menu entête-->
@@ -81,12 +87,29 @@
     </form>
     <h1>Supprimer une voyage</h1>
     <!--Supprimer-->
-    <label for="Id">Id de l'agence à supprimer :</label>
+    <label for="Id">Id du voyage à supprimer :</label>
     <form name="form1" id="form1">
-        <input type="text" name="name" id="choix" />
+        <select class="form-control" id="choix2"></select>
+
         <input type="button" id="Save" value="Supprimer" />
     </form>
     <script>
+        function LoadVoyages() {
+            $.ajax({
+                url: '/api/voyages',
+                success: function (voyages) {
+                    var select = $("#choix2");
+                    select.empty();
+                    select.append($('<option></option>')); // élément vide
+                    for (voyage of voyages) {
+                        var option = $('<option></option>');
+                        option.val(voyage.Id);
+                        option.text( 'ID: '+'(' + voyage.Id + ')' + ' ' +'Date aller: '+ voyage.DateAller + ' '+'Date retour: ' + voyage.DateRetour);
+                        select.append(option);
+                    }
+                }
+            });
+        }
         function LoadDestinations() {
             $.ajax({
                 url: '/api/destinations',
@@ -148,6 +171,7 @@
                 url: '/api/Voyages',
                 data: voyage,
                 success: function () {
+                    alert('Voyage Ajouté')
                 },
                 error: function () {
                     alert('Une erreur est survenue lors de lenregistrement');
@@ -177,6 +201,7 @@
         })
         LoadDestinations();
         LoadAgences();
+        LoadVoyages();
     </script>
 </body>
 </html> 
