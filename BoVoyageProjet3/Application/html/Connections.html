@@ -166,7 +166,7 @@
     </nav>
 
     <br />
-    <h2>Bienvenue, veuillez vous authentifier</h2>
+    <div class="jumbotron"><h2>Bienvenue, veuillez vous authentifier</h2></div>
     <button id="p" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
     <div id="id01" class="modal">
@@ -174,7 +174,7 @@
         <form class="modal-content animate" action="/action_page.php">
             <div class="imgcontainer">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-              
+
             </div>
 
             <div class="container">
@@ -185,18 +185,18 @@
                 <input type="password" placeholder="Entrez votre mot de passe" name="psw" required>
 
                 <button id="direction" onclick="return redirection()" type="button"> Login </button>
-                
+
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Annuler</button>
-                
+
             </div>
         </form>
     </div>
 
     <script>
-      
+
         // Get the modal
         function redirection() {
             window.location.href = '/application/html/Acceuil.html';

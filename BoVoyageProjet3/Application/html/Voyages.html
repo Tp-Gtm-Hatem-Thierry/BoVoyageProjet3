@@ -21,7 +21,6 @@
 </head>
 
 <body>
-    <!--Pensez à basculer le style dans le fichier css-->
     <!--Menu entête-->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="/"><i class="fas fa-check-double"></i> BoVoyage</a>
@@ -32,7 +31,7 @@
                     <a class="nav-link " href="AgencesVoyages.html" disabled> Agences </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link active" href="/Application/html/Voyages.html"> Voyages <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="Voyages.html"> Voyages <span class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item">
@@ -54,40 +53,48 @@
             </ul>
         </div>
     </nav>
-    <h1>Liste des voyages</h1>
+
     <div id="spanliste" style="border:2px solid black"></div>
-    <h1>Ajouter un voyage</h1>
+
+    <h1> Liste des voyages </h1>
+    <div class="form-group">
+        <label for="voyages"> Liste des voyages </label>
+        <select class="form-control" id="Voyages"></select>
+    </div>
+
+    <div id="spanliste" style="border:2px solid black"></div>
+    <h1> Ajouter un voyage </h1>
     <form novalidate style="margin: 50px;">
         <div class="form-group">
-            <label for="DateAller">DateAller</label>
+            <label for="DateAller"> DateAller </label>
             <input type="date" class="form-control" id="DateAller" required />
 
         </div>
         <div class="form-group">
-            <label for="DateRetour">DateRetour</label>
+            <label for="DateRetour"> DateRetour </label>
             <input type="date" class="form-control" id="DateRetour" required />
         </div>
         <div class="form-group">
-            <label for="Destination">Destination</label>
+            <label for="Destination"> Destination </label>
             <select class="form-control" id="Destination"></select>
         </div>
         <div class="form-group">
-            <label for="Agence">Agence</label>
+            <label for="Agence"> Agence </label>
             <select class="form-control" id="Agence"></select>
         </div>
         <div class="form-group">
-            <label for="PlacesDisponibles">Places disponibles</label>
+            <label for="PlacesDisponibles"> Places disponibles </label>
             <input type="text" class="form-control" id="PlacesDisponibles" required />
         </div>
         <div class="form-group">
-            <label for="PrixPersonne">Prix par personne</label>
+            <label for="PrixPersonne"> Prix par personne </label>
             <input type="text" class="form-control" id="PrixPersonne" required />
         </div>
         <input type="submit" value="Enregistrer" onclick="return Enregistrer();">
     </form>
-    <h1>Supprimer une voyage</h1>
+    <h1>Supprimer un voyage</h1>
     <!--Supprimer-->
-    <label for="Id">Id du voyage à supprimer :</label>
+    <label for="Id"> Id du voyage à supprimer : </label>
     <form name="form1" id="form1">
         <select class="form-control" id="choix2"></select>
 
@@ -104,7 +111,7 @@
                     for (voyage of voyages) {
                         var option = $('<option></option>');
                         option.val(voyage.Id);
-                        option.text( 'ID: '+'(' + voyage.Id + ')' + ' ' +'Date aller: '+ voyage.DateAller + ' '+'Date retour: ' + voyage.DateRetour);
+                        option.text('ID: ' + '(' + voyage.Id + ')' + ' ' + 'Date aller: ' + voyage.DateAller + ' ' + 'Date retour: ' + voyage.DateRetour);
                         select.append(option);
                     }
                 }
@@ -150,7 +157,7 @@
             success: function (data) { // on affiche le retour.
                 for (var element of data) {
                     $('#spanliste').append(element.Id + " // " + element.DestinationId + ' // ' + moment(element.DateAller).format('DD/MM/YYYY') + ' // ' + moment(element.DateRetour).format('DD/MM/YYYY') + ' // ' + element.PrixParPersonne + '€' + ' // ' + element.PlacesDisponibles + '<br>');
-                   
+
                 }
                 console.log(data)
             },
@@ -203,7 +210,7 @@
         LoadDestinations();
         LoadAgences();
         LoadVoyages();
-        
+
     </script>
 </body>
 </html> 
