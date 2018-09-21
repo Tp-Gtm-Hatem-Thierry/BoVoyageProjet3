@@ -19,6 +19,10 @@
 
     <!--<link rel="stylesheet" href="/Application/css/application.style.css" />-->
     <style>
+        
+        #nav {
+            margin-left: 0px;
+        }
         .Categorie {
             border: solid 1px lightgray;
             padding: 10px;
@@ -33,13 +37,14 @@
             .Categorie:hover button {
                 display: block;
             }
+
     </style>
 </head>
 
 
 <!--Menu destination ?-->
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav id="nav"class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="/"><i class="fas fa-check-double"></i> BoVoyage</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
@@ -83,16 +88,32 @@
 
     </form>
     <h1>Supprimer une agence</h1>
-    <!--Supprimer-->
-    <label for="Id">Id de l'agence à supprimer :</label>
-
     <form name="form1" id="form1">
-        <input type="text" name="name" id="choix" />
-
-        <input type="button" id="Save" value="Save Data" />
+        
+        <div class="form-group">
+            <label for="Agence">Agence</label>
+            <select class="form-control" id="Agence"></select>
+        </div>
+        <input type="button" id="Save" value="Supprimer" />
     </form>
 
     <script>
+        function LoadAgences() {
+            $.ajax({
+                url: '/api/agenceVoyages',
+                success: function (agences) {
+                    var select = $("#Agence");
+                    select.empty();
+                    select.append($('<option></option>')); // élément vide
+                    for (agence of agences) {
+                        var option = $('<option></option>');
+                        option.val(agence.Id);
+                        option.text('(' + agence.Id + ')' + ' ' + agence.Nom);
+                        select.append(option);
+                    }
+                }
+            });
+        }
         $(document).ready(function () {
 
         $.ajax({
@@ -114,11 +135,11 @@
             }
         });
 
-        }
+        })
         function Enregistrer() {
 
             let agence = {
-                Nom: $('#Nom').val(),
+                Nom: $('#Nom').val()
 
             };
             $.ajax({
@@ -139,7 +160,7 @@
 
             $('#Save').click(function () {
 
-                var choix = $('#choix').val();
+                var choix = $('#Agence').val();
                 //var sup = new Object();
                 //sup.id = $('#choix').val();
                 $.ajax({
@@ -157,6 +178,7 @@
                 });
             })
         })
+        LoadAgences();
 
     </script>
 </body>
