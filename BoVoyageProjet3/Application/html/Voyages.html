@@ -18,22 +18,33 @@
     <!--Pensez à basculer le style dans le fichier css-->
     <!--Menu entête-->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">BoVoyage : :</a>
+        <a class="navbar-brand" href="/"><i class="fas fa-check-double"></i> BoVoyage</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
+
                 <li class="nav-item">
-                    <a class="nav-link" href="/Application/html/Tache.html">Taches</a>
+                    <a class="nav-item " href="AgencesVoyages.html" disabled> Agences </a>
                 </li>
-                <!--"nav-item active" permet de griser, degriser un lien href-->
                 <li class="nav-item active">
-                    <a class="nav-link" href="/Application/html/Categories.html"> Catégories<span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="/Application/html/Voyages.html"> Voyages <span class="sr-only">(current)</span></a>
                 </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> S'enregister</a></li>-->
+
                 <li class="nav-item">
-                    <a class="nav-link" href="/Application/html/UserAgence.html"><span class="glyphicon glyphicon-log-in"></span> Gestion Commercial</a>
+                    <a class="nav-link" href="Destinations.html"> Destinations </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Assurances.html"> Assurances </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="Clients.html"> Clients </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="DossierReservations.html"> Reservations </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Participants.html"> Participants </a>
+                </li>
+
             </ul>
         </div>
     </nav>
@@ -115,7 +126,7 @@
             //dataType:'json',
             success: function (data) { // on affiche le retour.
                 for (var element of data) {
-                    $('#spanliste').append(element.Id + " " + element.DestinationId + ' ' + element.DateAller + ' ' + element.DateRetour + ' ' + element.PrixParPersonne + '€' + ' ' + element.PlacesDisponibles+ '<br>');
+                    $('#spanliste').append(element.Id + " " + element.DestinationId + ' ' + element.DateAller + ' ' + element.DateRetour + ' ' + element.PrixParPersonne + '€' + ' ' + element.PlacesDisponibles + '<br>');
                 }
                 console.log(data)
             },
