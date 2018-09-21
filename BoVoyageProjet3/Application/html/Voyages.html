@@ -12,7 +12,7 @@
           crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
           crossorigin="anonymous">
-   
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -47,26 +47,53 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/Application/html/Destinations.html">Destinations</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-item active" href="#" disabled>Agences <span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Application/html/Voyages.html">Voyages</a>
+                    <a class="nav-link" href="/Application/html/Agences.html" disabled>Agences</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-item active" href="#" disabled>Voyages <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
 
         </div>
     </nav>
-    
-    <h1>Liste des agences</h1>
+
+    <h1>Liste des voyages</h1>
     <span></span>
-    <h1>Ajouter une agence</h1>
+    <h1>Ajouter un voyage</h1>
     <form novalidate>
         <div class="form-group">
-            <label>Nom de l'agence :</label>
-            <input type="text" class="form-control" id="Nom" required />
+            <label for="DateAller">DateAller</label>
+            <input type="date" class="form-control" id="DateAller" required />
+         
 
         </div>
+
+        <div class="form-group">
+            <label for="DateRetour">DateRetour</label>
+            <input type="date" class="form-control" id="DateRetour" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Destination">Destination</label>
+            <select class="form-control" id="Destination"></select>
+        </div>
+
+        <div class="form-group">
+            <label for="Agence">Agence</label>
+            <select class="form-control" id="Agence"></select>
+        </div>
+
+        <div class="form-group">
+            <label for="PlacesDisponibles">Places disponibles</label>
+            <input type="text" class="form-control" id="PlacesDisponibles" required />
+        </div>
+
+        <div class="form-group">
+            <label for="PrixPersonne">Prix par personne</label>
+            <input type="text" class="form-control" id="PrixPersonne" required />
+        </div>
+
         <input type="submit" value="Enregistrer" onclick="return Enregistrer();">
 
     </form>
@@ -81,16 +108,50 @@
     </form>
 
     <script>
+
+        function LoadDestinations() {
+            $.ajax({
+                url: '/api/destinations',
+                success: function (destinations) {
+                    var select = $("#Destination");
+                    select.empty();
+                    select.append($('<option></option>')); // élément vide
+                    for (destination of destinations) {
+                        var option = $('<option></option>');
+                        option.val(destination.Id);
+                        option.text('('+destination.Id+')'+' '+destination.Continent+' '+destination.Pays);
+                        select.append(option);
+                    }
+                }
+            });
+        }
+        function LoadAgences() {
+            $.ajax({
+                url: '/api/agenceVoyages',
+                success: function (agences) {
+                    var select = $("#Agence");
+                    select.empty();
+                    select.append($('<option></option>')); // élément vide
+                    for (agence of agences) {
+                        var option = $('<option></option>');
+                        option.val(destination.Id);
+                        option.text('(' + agence.Id + ')' + ' ' + agence.Nom);
+                        select.append(option);
+                    }
+                }
+            });
+        }
+
         $.ajax({
             type: 'GET',
-            url: '/api/agencevoyages',
+            url: '/api/voyages',
             //data: data,
             //dataType:'json',
 
             success: function (data) { // on affiche le retour.
                 for (var element of data) {
 
-                    $('span').append(element.Id + " " + element.Nom + '<br>');
+                    $('span').append(element.Id + " " + element.DestinationId + '<br>');
                 }
                 console.log(data)
             },
@@ -102,23 +163,29 @@
 
         function Enregistrer() {
 
-            let agence = {
-                Nom: $('#Nom').val(),
+            let voyage = {
+                DateAller: $('#DateAller').val(),
+                DateRetour: $('#DateRetour').val(),
+                PlacesDisponibles: $('#PlacesDisponibles').val(),
+                PrixParPersonne: $('#PrixPersonne').val(),
+                DestinationId: $('#Destination').val(),
+                AgenceVoyageId: $('#Agence').val()
 
             };
             $.ajax({
                 type: 'POST',
-                url: '/api/agencevoyages',
-                data: agence,
+                url: '/api/Voyages',
+                data: voyage,
                 success: function () {
-                    alert('Agence ajoutée !')
+
                 },
                 error: function () {
-                    alert('Aïe aïe aïe carambla !!');
+                    alert('Une erreur est survenue lors de lenregistrement');
                 }
             });
             return false;
         }
+
 
         $(document).ready(function () {
 
@@ -142,6 +209,8 @@
                 });
             })
         })
+        LoadDestinations();
+        LoadAgences();
 
     </script>
 </body>

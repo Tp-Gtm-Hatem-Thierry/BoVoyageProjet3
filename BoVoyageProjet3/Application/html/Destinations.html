@@ -43,11 +43,14 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
 
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-item active" href="/">Destinations <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="/Application/html/Agences.html" disabled>Agences </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Application/html/Voyages.html" disabled>Agences </a>
                 </li>
             </ul>
 
@@ -74,9 +77,15 @@
         </div>
 
         <div class="form-group">
+            <label for="Region">Region</label>
+            <input type="text" class="form-control" id="Region" required />
+        </div>
+
+        <div class="form-group">
             <label for="Description">Description</label>
             <input type="text" class="form-control" id="Description" required />
         </div>
+
 
         <input type="submit" value="Enregistrer" onclick="return Enregistrer();">
 
@@ -123,7 +132,9 @@
             let destination = {
                 Continent: $('#Continent').val(),
                 Pays: $('#Pays').val(),
-                Description: $('#Description').val()
+                Description: $('#Description').val(),
+                Region: $('#Region').val()
+
             };
             $.ajax({
                 type: 'POST',
