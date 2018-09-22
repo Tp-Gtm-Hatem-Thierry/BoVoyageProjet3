@@ -96,11 +96,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Application\css\style.css" />
-    <Content Include="Application\IntranetHtml\Acceuil.html" />
+    <Content Include="Application\WebHtml\Web_Acceuil.html" />
     <Content Include="Application\IntranetHtml\Intranet_AgencesVoyages.html" />
     <Content Include="Application\IntranetHtml\Intranet_Assurances.html" />
     <Content Include="Application\IntranetHtml\Intranet_Clients.html" />
-    <Content Include="Application\IntranetHtml\Connections.html" />
+    <Content Include="Application\WebHtml\Web_Connections.html" />
     <Content Include="Application\IntranetHtml\Intranet_Destinations.html" />
     <Content Include="Application\IntranetHtml\Intranet_DossierReservations.html" />
     <Content Include="Application\IntranetHtml\Intranet_Participants.html" />
@@ -153,7 +153,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Application\WebHtml\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
