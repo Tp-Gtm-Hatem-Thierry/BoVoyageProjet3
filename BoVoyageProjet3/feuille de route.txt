@@ -37,3 +37,9 @@ https://www.google.fr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwjZpa
 
 Dans le web config :
     <!--Catalog (origine)=BoVoyage-->
+
+
+* suprimer la page Web_Accueil
+* creer le contenu de l'accueil du site
+* inclure un model de connection dans l'index
+* suprimer la page connection.html
