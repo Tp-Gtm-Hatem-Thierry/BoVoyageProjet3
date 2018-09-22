@@ -96,15 +96,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Application\css\style.css" />
-    <Content Include="Application\html\Acceuil.html" />
-    <Content Include="Application\html\AgencesVoyages.html" />
-    <Content Include="Application\html\Assurances.html" />
-    <Content Include="Application\html\Clients.html" />
-    <Content Include="Application\html\Connections.html" />
-    <Content Include="Application\html\Destinations.html" />
-    <Content Include="Application\html\DossierReservations.html" />
-    <Content Include="Application\html\Participants.html" />
-    <Content Include="Application\html\Voyages.html" />
+    <Content Include="Application\IntranetHtml\Acceuil.html" />
+    <Content Include="Application\IntranetHtml\AgencesVoyages.html" />
+    <Content Include="Application\IntranetHtml\Assurances.html" />
+    <Content Include="Application\IntranetHtml\Clients.html" />
+    <Content Include="Application\IntranetHtml\Connections.html" />
+    <Content Include="Application\IntranetHtml\Destinations.html" />
+    <Content Include="Application\IntranetHtml\DossierReservations.html" />
+    <Content Include="Application\IntranetHtml\Participants.html" />
+    <Content Include="Application\IntranetHtml\Voyages.html" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
     <Content Include="Web.config" />
