@@ -153,8 +153,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Application\WebHtml\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Web\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201809202243487_Init.resx">
