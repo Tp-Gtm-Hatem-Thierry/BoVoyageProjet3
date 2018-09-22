@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<!--Menu Clients-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>BoVoyage :: Destination voyages</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+
+<!--Barre du menu du site-->
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="/"><i class="fas fa-check-double"></i> BoVoyage</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link " href="AgencesVoyages.html" disabled> Agences </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Application/html/Voyages.html">Voyages</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="Destinations.html"> Destinations </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Assurances.html"> Assurances </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link active" href="Clients.html"> Clients <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="DossierReservations.html"> Reservations </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Participants.html"> Participants </a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <!--Liste Clients-->
+    <div novalidate style="margin: 50px;">
+        <h1> Liste des Clients </h1>
+        <div class="form-group">
+            <label for="Clients"> Liste des Clients </label>
+            <select class="form-control" id="Clients"></select>
+        </div>
+    </div>
+
+    <hr />
+
+
+    <!--Ajout d'un client-->
+    <div novalidate style="margin: 50px;">
+        <h1> Ajouter un client : </h1>
+
+        <div>
+            <label> Civilité </label> <br />
+            <input type="radio" name="Civilite" value="M" checked> M <br>
+            <input type="radio" name="Civilite" value="Mme"> Mme <br>
+            <input type="radio" name="Civilite" value="Autre"> Autre <br>
+            <br />
+        </div>
+
+        <div class="form-group">
+            <label for="Nom"> Nom </label>
+            <input type="text" class="form-control" id="Nom" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Prenom"> Prenom </label>
+            <input type="text" class="form-control" id="Prenom" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Adresse"> Adresse </label>
+            <input type="text" class="form-control" id="Adresse" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Email"> Email </label>
+            <input type="text" class="form-control" id="Email" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Telephone"> Telephone </label>
+            <input type="text" class="form-control" id="Telephone" required />
+        </div>
+
+        <div class="form-group">
+            <label for="DateNaissance"> DateNaissance </label>
+            <input type="date" class="form-control" id="DateNaissance" required />
+        </div>
+
+        <input type="submit" value="Enregistrer" onclick="return Enregistrer();">
+    </div>
+
+    <hr />
+
+    <!--Supprimer-->
+    <div novalidate style="margin: 50px;">
+        <h1> Supprimer un client : </h1>
+        <label for="Id"> Id du client à supprimer : </label>
+
+        <form name="form1" id="form1">
+            <input type="text" name="name" id="choix" />
+            <input type="button" id="Save" value="Supprimer" />
+
+        </form>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            $.ajax({
+                type: 'GET',
+                url: '/api/clients',
+                success: function (data) {
+                    for (var element of data) {
+                        $('#liste').append(element.Id + ' ' + element.Civilite + ' ' + element.Nom + " " + element.Prenom + " " + element.Adresse + ' ' + element.Email + ' ' + element.Telephone + ' ' + element.DateNaissance + '<br>');
+                    }
+                },
+                error: function () {
+                    alert('Erreur lors de la récupération de la liste');
+                }
+            });
+        })
+
+        function Enregistrer() {
+            let client = {
+                Civilite: $('radio').val(),
+                Nom: $('#Nom').val(),
+                Prenom: $('#Prenom').val(),
+                Adresse: $('#Adresse').val(),
+                Email: $('#Email').val(),
+                Telephone: $('#Telephone').val(),
+                DateNaissance: $('#DateNaissance').val()
+
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/api/clients',
+                data: client,
+                success: function () {
+                    alert('Client ajouté');
+                },
+                error: function () {
+                    alert('Erreur lors de l\'ajout d\'un client');
+
+                }
+            });
+            return false;
+        }
+        //--------------------------------------
+        $(document).ready(function () {
+            $('#Save').click(function () {
+                var choix = $('#choix').val();
+
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/api/clients/' + choix,
+                    success: function (data) {
+                        alert('Client supprimé');
+                        console.log(data);
+                    },
+                    error: function () {
+                        alert('Erreur de supprésion.');
+                    }
+                });
+            })
+        })
+    </script>
+
+</body>
+</html>

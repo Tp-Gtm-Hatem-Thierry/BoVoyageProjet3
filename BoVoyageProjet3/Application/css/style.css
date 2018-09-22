@@ -1,0 +1,6 @@
+﻿.box {
+    display:flex;
+    flex-grow:inherit;
+    margin-bottom: 100px;
+    background-color: whitesmoke;
+}

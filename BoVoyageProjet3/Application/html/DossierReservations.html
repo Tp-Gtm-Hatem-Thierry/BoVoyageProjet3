@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<!--Menu navigation-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>BoVoyage :: Destination voyages</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+
+<!--Accueil du site-->
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="/"><i class="fas fa-check-double"></i> BoVoyage</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link " href="AgencesVoyages.html" disabled> Agences </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Voyages.html">Voyages</a>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="Destinations.html"> Destinations </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Assurances.html"> Assurances </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="Clients.html"> Clients </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link active" href="DossierReservations.html"> Reservations <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Participants.html"> Participants </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Liste de dossiers Voyage-->
+    <form novalidate style="margin: 50px;">
+        <h1> Liste des Dossiers </h1>
+        <div class="form-group">
+            <label for="dossiers"> Liste des Dossiers </label>
+            <select class="form-control" id="Dossiers"></select>
+        </div>
+    </form>
+
+    <hr />
+
+    <!--Ajouter dossier voyage-->
+    <form novalidate style="margin: 50px;">
+        <h1> Ajouter un dossier : </h1>
+        <div class="form-group">
+            <label for="NumeroUnique"> Numero unique </label>
+            <input type="text" class="form-control" id="NumeroUnique" required />
+        </div>
+
+        <div class="form-group">
+            <label for="VoyageId"> Voyage </label>
+            <input type="text" class="form-control" id="VoyageId" required />
+        </div>
+
+        <div class="form-group">
+            <label for="ClientId"> Client </label>
+            <input type="text" class="form-control" id="ClientId" required />
+        </div>
+
+        <div class="form-group">
+            <label for="ParticipantId"> Participants </label>
+            <input type="text" class="form-control" id="ParticipantId" required />
+        </div>
+
+        <div class="form-group">
+            <label for="NumeroCarteBancaire"> Numero de carte bancaire </label>
+            <input type="text" class="form-control" id="NumeroCarteBancaire" required />
+        </div>
+
+        <div class="form-group">
+            <label for="PrixParPersonne"> Prix par personne </label>
+            <input type="text" class="form-control" id="PrixParPersonne" required />
+        </div>
+
+        <div class="form-group">
+            <label for="PrixTotal"> Prix total </label>
+            <input type="text" class="form-control" id="PrixTotal" required />
+        </div>
+
+        <div class="form-group">
+            <label for="EtatDossierReservation"> Etat du dossier </label>
+            <input type="text" class="form-control" id="EtatDossierReservation" required />
+        </div>
+
+        <div class="form-group">
+            <label for="RaisonAnnulationDossier"> Raison de l'annulation du dossier </label>
+            <input type="date" class="form-control" id="RaisonAnnulationDossier" required />
+        </div>
+
+        <input type="submit" value="Enregistrer" onclick="return Enregistrer();">
+    </form>
+
+    <hr />
+
+
+    <!--Supprimer un dossier-->
+    <div novalidate style="margin: 50px;">
+
+        <h1> Supprimer un dossier : </h1>
+        <label for="Id"> Id du dossier à supprimer : </label>
+
+        <form name="form1" id="form1">
+            <input type="text" name="name" id="choix" />
+            <input type="button" id="Save" value="Supprimer" />
+        </form>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            $.ajax({
+                type: 'GET',
+                url: '/api/clients',
+                success: function (data) {
+                    for (var element of data) {
+                        $('#liste').append(element.Id + ' ' + element.Civilite + ' ' + element.Nom + " " + element.Prenom + " " + element.Adresse + ' ' + element.Email + ' ' + element.Telephone + ' ' + element.DateNaissance + '<br>');
+                    }
+                },
+                error: function () {
+                    alert('Impossible de charger la liste');
+                }
+            });
+        })
+
+        function Enregistrer() {
+            let client = {
+                Civilite: $('radio').val(),
+                Nom: $('#Nom').val(),
+                Prenom: $('#Prenom').val(),
+                Adresse: $('#Adresse').val(),
+                Email: $('#Email').val(),
+                Telephone: $('#Telephone').val(),
+                DateNaissance: $('#DateNaissance').val()
+
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/api/clients',
+                data: client,
+                success: function () {
+                    alert('Client ajouté');
+                },
+                error: function () {
+                    alert('Echec de l\'ajout d\'un client');
+
+                }
+            });
+            return false;
+        }
+        //--------------------------------------
+        $(document).ready(function () {
+            $('#Save').click(function () {
+                var choix = $('#choix').val();
+
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/api/clients/' + choix,
+                    success: function (data) {
+                        alert('Client supprimé');
+                        console.log(data);
+                    },
+                    error: function () {
+                        alert('Impossible de supprimer.');
+                    }
+                });
+            })
+
+
+        })
+    </script>
+
+</body>
+</html>

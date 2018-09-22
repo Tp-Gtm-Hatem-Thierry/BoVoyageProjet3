@@ -95,6 +95,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Application\css\style.css" />
+    <Content Include="Application\html\Acceuil.html" />
+    <Content Include="Application\html\AgencesVoyages.html" />
+    <Content Include="Application\html\Assurances.html" />
+    <Content Include="Application\html\Clients.html" />
+    <Content Include="Application\html\Connections.html" />
+    <Content Include="Application\html\Destinations.html" />
+    <Content Include="Application\html\DossierReservations.html" />
+    <Content Include="Application\html\Participants.html" />
+    <Content Include="Application\html\Voyages.html" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
     <Content Include="Web.config" />
@@ -134,6 +144,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Application\html\Voyages.html~HEAD" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
