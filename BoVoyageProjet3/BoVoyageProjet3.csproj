@@ -97,14 +97,14 @@
   <ItemGroup>
     <Content Include="Application\css\style.css" />
     <Content Include="Application\IntranetHtml\Acceuil.html" />
-    <Content Include="Application\IntranetHtml\AgencesVoyages.html" />
-    <Content Include="Application\IntranetHtml\Assurances.html" />
-    <Content Include="Application\IntranetHtml\Clients.html" />
+    <Content Include="Application\IntranetHtml\Intranet_AgencesVoyages.html" />
+    <Content Include="Application\IntranetHtml\Intranet_Assurances.html" />
+    <Content Include="Application\IntranetHtml\Intranet_Clients.html" />
     <Content Include="Application\IntranetHtml\Connections.html" />
-    <Content Include="Application\IntranetHtml\Destinations.html" />
-    <Content Include="Application\IntranetHtml\DossierReservations.html" />
-    <Content Include="Application\IntranetHtml\Participants.html" />
-    <Content Include="Application\IntranetHtml\Voyages.html" />
+    <Content Include="Application\IntranetHtml\Intranet_Destinations.html" />
+    <Content Include="Application\IntranetHtml\Intranet_DossierReservations.html" />
+    <Content Include="Application\IntranetHtml\Intranet_Participants.html" />
+    <Content Include="Application\IntranetHtml\Intranet_Voyages.html" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
     <Content Include="Web.config" />
