@@ -10,14 +10,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-    
+
         body {
             margin-bottom: 100px;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            text-align:center;
+            text-align: center;
         }
 
         /* Full-width input fields */
@@ -149,25 +149,85 @@
                 width: 100%;
             }
         }
+
         #p {
             margin-top: 50px;
-            
-            
         }
     </style>
 </head>
+<!--Gestion personnel compte client-->
+
 <body>
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="/"><i class="fas fa-check-double"></i> BoVoyage : :</a>
+
+        <!--Menu : titre-->
+        <div><a class="navbar-brand" href="/"><i class="fas fa-check-double"> BoVoyage </i> : : </a></div>
+
+        <!--Menu : container-->
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto"></ul>
+
+            <!--Menu : container navigation-->
+            <ul class="navbar-nav mr-auto">
+
+                <!--Menu : navigation lien 1-->
+                <!--<li class="nav-item active">-->
+                <!--<a class="nav-link" href="/" label="accueil"> accueil </a>
+                </li>-->
+                <!--Menu : navigation lien 2-->
+                <li class="nav-item ">
+                    <a class="nav-link " href="Application/IntranetHtml/Intranet_Voyages.html"> Voyages </a>
+                </li>
+
+                <!--Menu : navigation lien 3"-->
+                <li class="nav-item">
+                    <a class="nav-link" href="Application/IntranetHtml/Intranet_Destinations.html"> Destinations </a>
+                </li>
+
+                <!--Menu : navigation lien 4-->
+                <!--<li class="nav-item">
+                    <a class="nav-link" href="Application/IntranetHtml/Intranet_DossierReservations.html"> Reservations </a>
+                </li>-->
+                <!--Menu navigation lien 5
+                <li class="nav-item ">
+                    <a class="nav-link " href="Assurances.html" disable> lien </a>
+                </li>
+
+                <!--Menu navigation lien 6
+                <li class="nav-item">
+                    <a class="nav-link" href="Clients.html" disable> lien 6 </a>
+                </li>
+
+                <!--Menu navigation lien 7
+                <li class="nav-item">
+                    <a class="nav-link" href="DossierReservations.html" disable> lien 7 </a>
+                </li>
+
+                <!--Menu navigation lien 8
+                <li class="nav-item">
+                    <a class="nav-link" href="Participants.html"disable> lien 8 </a>
+                </li>-->
+                <!--"nav-item active" grise, degrise un lien href dans la liste-->
+                <!--<li class="nav-item active">
+                    <a class="nav-link" href="/Application/html/Voyage.html"> Catégories<span class="sr-only">(current)</span></a>
+                </li>-->
+            </ul>
+
+
+            <!--Menu : container connection-->
+            <ul class="nav navbar-nav navbar-right">
+                <!--Menu connection lien 1-->
+                <li class="nav-item">
+                    <a class="nav-link" href="Application/WebHtml/Web_Connections.html"><span class="glyphicon glyphicon-log-in"></span> mon compte </a>
+                </li>
+            </ul>
         </div>
+
     </nav>
 
     <br />
-    <div class="jumbotron"><h2>Bienvenue, veuillez vous authentifier</h2></div>
-    <button id="p" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+    <div class="jumbotron"><h2> Bienvenue dans votre gestionnaire, veuillez vous authentifier </h2></div>
+    <button id="p" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"> Login </button>
 
     <div id="id01" class="modal">
 
@@ -189,7 +249,7 @@
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Annuler</button>
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"> Annuler </button>
 
             </div>
         </form>
