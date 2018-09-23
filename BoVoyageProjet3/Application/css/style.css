@@ -1,6 +1,18 @@
-﻿.box {
-    display:flex;
-    flex-grow:inherit;
+﻿body {
     margin-bottom: 100px;
-    background-color: whitesmoke;
 }
+
+.Categorie {
+    border: solid 1px lightgray;
+    padding: 10px;
+}
+
+    .Categorie button {
+        float: right;
+        margin-right: 5px;
+        display: none;
+    }
+
+    .Categorie:hover button {
+        display: block;
+    }
